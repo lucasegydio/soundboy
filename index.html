@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SoundBoy</title>
+<meta name="description" content="SoundBoy: player de música para os arquivos do seu computador. Gratuito.">
+<meta property="og:title" content="SoundBoy">
+<meta property="og:description" content="Player de música para os arquivos do seu computador. Gratuito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap">
+<style>
+/* layout: uma folha de produto — objeto à esquerda, ficha técnica à direita, módulos em grade como um catálogo de hardware */
+:root {
+  --paper: #ECECE8;      /* chassi cinza claro */
+  --panel: #F6F6F3;      /* face dos módulos */
+  --ink: #161616;        /* serigrafia */
+  --mut: #6F6F69;        /* legenda */
+  --line: rgba(22,22,22,.12);
+  --or: #FF5B00;         /* laranja de botão */
+  --knob: #262626;
+  --c1: #f9bc29; --c2: #ff6a13; --c3: #eecbfd; --c4: #ffb36b;  /* luz da faixa */
+  --f: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121211; --panel: #1C1C1A; --ink: #F3F3F0; --mut: #9A9A92; --line: rgba(243,243,240,.12); --knob: #3A3A37; color-scheme: dark; } }
+:root[data-theme="dark"] { --paper: #121211; --panel: #1C1C1A; --ink: #F3F3F0; --mut: #9A9A92; --line: rgba(243,243,240,.12); --knob: #3A3A37; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.5 var(--f); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.lab { font-size: 11px; font-weight: 500; letter-spacing: .02em; color: var(--mut); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* topo */
+header { padding-block: 22px; }
+header .wrap { display: flex; align-items: center; gap: 14px; }
+.mark { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 17px; letter-spacing: -.02em; text-decoration: none; }
+.mark i { width: 14px; height: 14px; border-radius: 50%; background: conic-gradient(from 200deg, var(--c1), var(--c2), var(--c3), var(--c1)); }
+header nav { margin-left: auto; display: flex; gap: 22px; font-size: 14px; }
+header nav a { text-decoration: none; color: var(--mut); }
+header nav a:hover { color: var(--ink); }
+
+/* hero: o objeto */
+.hero { padding-block: 24px 56px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; }
+.hero h1 { margin: 0; font-size: clamp(64px, 11vw, 148px); font-weight: 700; letter-spacing: -.065em; line-height: .86; }
+.hero p.lead { margin: 22px 0 0; font-size: clamp(19px, 2vw, 24px); line-height: 1.3; letter-spacing: -.015em; max-width: 30ch; }
+.hero p.lead span { color: var(--mut); }
+
+/* o aparelho (CSS): painel cinza com a luz, capa e CD saindo, botão giratório e réguas */
+.dev { position: relative; background: var(--panel); border-radius: 34px; padding: 18px; box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 30px 60px -30px rgba(0,0,0,.35); }
+.dev-top { display: flex; align-items: center; justify-content: space-between; padding: 2px 6px 12px; }
+.dev-top .led { width: 8px; height: 8px; border-radius: 50%; background: var(--or); box-shadow: 0 0 10px var(--or); animation: blink 1.6s steps(2) infinite; }
+@keyframes blink { 50% { opacity: .25; } }
+.lux { position: relative; height: clamp(250px, 32vw, 360px); border-radius: 24px; overflow: hidden; isolation: isolate; background: var(--c4); display: grid; place-items: center; }
+.lux::before { content: ""; position: absolute; inset: -30%; z-index: -2; filter: blur(30px);
+  background: radial-gradient(42% 52% at 22% 66%, var(--c1), transparent 78%), radial-gradient(44% 46% at 80% 30%, var(--c2), transparent 78%),
+    radial-gradient(60% 44% at 60% 96%, var(--c3), transparent 74%), var(--c1);
+  animation: drift 14s ease-in-out infinite alternate; }
+@keyframes drift { 50% { transform: translate(4%, -3%) rotate(8deg) scale(1.06); } 100% { transform: translate(-3%, 4%) rotate(-6deg) scale(1.02); } }
+.rec { position: relative; width: 46%; aspect-ratio: 1; transform: translateX(-16%); }
+.sleeve { position: absolute; inset: 0; z-index: 2; border-radius: 9px; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,.28);
+  background: linear-gradient(160deg, #1d1d1b 0 38%, #ff5b00 38% 62%, #f3f3f0 62%); }
+.sleeve b { position: absolute; left: 10%; bottom: 9%; color: #f3f3f0; font-size: clamp(12px, 1.4vw, 16px); letter-spacing: -.02em; }
+.sleeve i { position: absolute; right: 10%; top: 10%; width: 22%; aspect-ratio: 1; border-radius: 50%; background: #f3f3f0; }
+.cd { position: absolute; z-index: 1; inset: 3%; border-radius: 50%; transform: translateX(46%);
+  background: radial-gradient(circle, transparent 0 6.6%, rgba(255,255,255,.75) 7% 7.8%, rgba(225,229,234,.5) 8.2% 16.8%, rgba(255,255,255,.8) 17% 17.6%, transparent 18.2%),
+    conic-gradient(from 18deg, transparent 0deg, rgba(255,140,190,.55) 18deg, rgba(255,230,120,.5) 34deg, rgba(120,240,200,.5) 50deg, rgba(110,170,255,.55) 66deg, transparent 88deg 170deg, rgba(255,140,190,.5) 198deg, rgba(255,230,120,.45) 214deg, rgba(120,240,200,.45) 230deg, rgba(110,170,255,.5) 246deg, transparent 268deg),
+    radial-gradient(circle, #cfd4da 0 30%, #e3e6ea 55%, #c6ccd3 85%, #eef0f2 97.5%, #9aa1aa 99%, transparent 100%);
+  -webkit-mask: radial-gradient(circle, transparent 0 6.4%, #000 6.8%); mask: radial-gradient(circle, transparent 0 6.4%, #000 6.8%);
+  animation: spin 2.6s linear infinite; filter: drop-shadow(0 12px 22px rgba(0,0,0,.25)); }
+@keyframes spin { from { transform: translateX(46%) rotate(0); } to { transform: translateX(46%) rotate(360deg); } }
+.clock { position: absolute; left: 20px; bottom: 14px; color: #161616; font-size: clamp(22px, 2.6vw, 30px); font-weight: 300; letter-spacing: -.03em; }
+.clock span { opacity: .5; }
+.dev-ctl { display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; margin-top: 12px; }
+.mod { background: var(--paper); border-radius: 16px; padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.mod b { font-size: 30px; font-weight: 300; letter-spacing: -.04em; line-height: 1; }
+.ticks { display: flex; gap: 2px; height: 12px; margin-top: auto; }
+.ticks i { flex: 1; border-radius: 1px; background: var(--line); }
+.ticks i.on { background: var(--ink); }
+.knob { width: 74px; display: grid; place-items: center; }
+.knob .k { width: 50px; height: 50px; border-radius: 50%; position: relative; background: conic-gradient(from 225deg, var(--ink) 200deg, var(--line) 0 270deg, transparent 0); }
+.knob .k::before { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: var(--paper); }
+.knob .k::after { content: ""; position: absolute; inset: 8px; border-radius: 50%; background: var(--knob); box-shadow: inset 0 -2px 0 rgba(0,0,0,.35); }
+.knob .k em { position: absolute; z-index: 2; left: 50%; top: 11px; width: 2px; height: 9px; margin-left: -1px; background: #f3f3f0; border-radius: 1px; transform-origin: 1px 14px; transform: rotate(65deg); }
+@media (prefers-reduced-motion: reduce) { .lux::before, .cd, .dev-top .led { animation: none; } }
+
+/* baixar: ficha do produto */
+.get { padding-block: 0 72px; }
+.get-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 14px; }
+.card { background: var(--panel); border-radius: 26px; padding: 26px; min-width: 0; }
+.card h2 { margin: 0; font-size: 34px; font-weight: 700; letter-spacing: -.045em; line-height: 1; }
+.specs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 22px 0 24px; border-top: 1px solid var(--line); }
+.specs div { padding: 12px 12px 0 0; display: flex; flex-direction: column; gap: 2px; }
+.specs b { font-size: 17px; font-weight: 500; letter-spacing: -.01em; }
+.dl { display: inline-flex; align-items: center; gap: 12px; height: 56px; padding: 0 26px 0 22px; border-radius: 999px; background: var(--or); color: #fff; font-weight: 600; font-size: 17px; text-decoration: none; letter-spacing: -.01em; transition: transform .15s, box-shadow .15s; box-shadow: 0 10px 24px -10px rgba(255,91,0,.7); }
+.dl:hover { transform: translateY(-1px); box-shadow: 0 14px 28px -10px rgba(255,91,0,.8); }
+.dl:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.dl svg { width: 20px; height: 20px; }
+.dl-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.dl-row .lab a { color: var(--mut); }
+.soon { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; background: transparent; border: 1.5px dashed var(--line); }
+.soon h2 { color: var(--mut); }
+.soon .pill { align-self: flex-start; height: 30px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--line); display: inline-flex; align-items: center; font-size: 13px; color: var(--mut); }
+.reels { display: flex; gap: 10px; }
+.reels i { width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid var(--mut); position: relative; opacity: .6; }
+.reels i::after { content: ""; position: absolute; inset: 38%; border-radius: 50%; background: var(--mut); }
+
+/* o que tem: módulos */
+section h3 { margin: 0 0 18px; font-size: clamp(30px, 4vw, 44px); font-weight: 700; letter-spacing: -.045em; line-height: 1; }
+.feat { padding-block: 0 72px; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.cell { background: var(--panel); border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 6px; min-height: 140px; min-width: 0; }
+.cell .ic { width: 28px; height: 28px; margin-bottom: auto; }
+.cell .ic svg { width: 28px; height: 28px; stroke: var(--ink); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.cell b { font-size: 17px; font-weight: 600; letter-spacing: -.02em; }
+.cell span { font-size: 13px; color: var(--mut); line-height: 1.35; }
+.cell.big { grid-column: span 2; }
+
+/* instalar: passos de verdade (sequência) */
+.steps { padding-block: 0 72px; }
+.st { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.st div { background: var(--panel); border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.st em { font-style: normal; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-size: 13px; font-weight: 600; }
+.st b { font-size: 17px; font-weight: 600; letter-spacing: -.02em; }
+.st p { margin: 0; font-size: 14px; color: var(--mut); line-height: 1.45; }
+.st kbd { font: inherit; font-weight: 600; color: var(--ink); }
+
+/* novidades */
+.log { padding-block: 0 80px; }
+.log ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.log li { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 20px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.log li ul { margin: 0; padding-left: 18px; color: var(--mut); font-size: 15px; }
+.log li ul li { display: list-item; border: 0; padding: 2px 0; }
+.log .v { font-size: 22px; font-weight: 300; letter-spacing: -.03em; }
+
+footer { padding-block: 28px 40px; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 13px; color: var(--mut); }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--ink); }
+footer .sp { flex: 1; }
+
+@media (max-width: 900px) {
+  .hero-grid, .get-grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .st { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  header nav { display: none; }
+  .grid { grid-template-columns: 1fr; }
+  .cell.big { grid-column: auto; }
+  .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .log li { grid-template-columns: 1fr; gap: 6px; }
+  .dev-ctl { grid-template-columns: 1fr 1fr; }
+  .knob { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="mark" href="#"><i></i>SoundBoy</a>
+  <nav><a href="#baixar">Baixar</a><a href="#recursos">Recursos</a><a href="#instalar">Instalar</a><a href="#novidades">Novidades</a></nav>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <h1>SoundBoy</h1>
+    <p class="lead">Player de música para os arquivos do seu computador. <span>Capas grandes, letra na hora certa e uma luz que muda com cada faixa.</span></p>
+  </div>
+  <div class="dev" aria-hidden="true">
+    <div class="dev-top"><span class="lab">soundboy · 0.9</span><span class="led"></span></div>
+    <div class="lux">
+      <div class="rec"><div class="cd"></div><div class="sleeve"><i></i><b>lado a</b></div></div>
+      <div class="clock num">1:15<span> / 3:42</span></div>
+    </div>
+    <div class="dev-ctl">
+      <div class="mod"><span class="lab">bpm</span><b class="num">124</b><div class="ticks" id="tk"></div></div>
+      <div class="mod"><span class="lab">tom</span><b class="num">8A</b><div class="ticks" id="tk2"></div></div>
+      <div class="knob"><div class="k"><em></em></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="get" id="baixar"><div class="wrap get-grid">
+  <div class="card">
+    <span class="lab">disponível</span>
+    <h2>SoundBoy 0.9</h2>
+    <div class="specs">
+      <div><span class="lab">sistema</span><b>Windows 10 · 11</b></div>
+      <div><span class="lab">tamanho</span><b class="num">202 MB</b></div>
+      <div><span class="lab">preço</span><b>Gratuito</b></div>
+    </div>
+    <div class="dl-row">
+      <a class="dl" id="dl" href="https://github.com/lucasegydio/soundboy/releases/latest/download/SoundBoy-instalador-0.9.exe">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>Baixar para Windows</a>
+      <span class="lab">instala sem administrador · <a href="https://github.com/lucasegydio/soundboy/releases">todas as versões</a></span>
+    </div>
+  </div>
+  <div class="card soon">
+    <span class="lab">em breve</span>
+    <div class="reels"><i></i><i></i></div>
+    <div><h2>Vision</h2><p class="lab" style="margin:8px 0 0;font-size:14px">Simulador de DJ com dois decks, sync e controladora MIDI.</p></div>
+    <span class="pill">em desenvolvimento</span>
+  </div>
+</div></section>
+
+<section class="feat" id="recursos"><div class="wrap">
+  <h3>O que tem</h3>
+  <div class="grid">
+    <div class="cell big"><span class="ic"><svg viewBox="0 0 28 28"><rect x="3" y="6" width="14" height="14" rx="2"/><circle cx="19" cy="13" r="7"/><circle cx="19" cy="13" r="1.5"/></svg></span><b>Capas</b><span>Os álbuns um ao lado do outro, com o CD saindo da capa do meio.</span></div>
+    <div class="cell"><span class="ic"><svg viewBox="0 0 28 28"><path d="M5 8h18M5 14h18M5 20h12"/></svg></span><b>Biblioteca</b><span>Músicas, artistas, álbuns, gêneros e histórico.</span></div>
+    <div class="cell"><span class="ic"><svg viewBox="0 0 28 28"><circle cx="14" cy="11" r="5"/><path d="M5 24c1.8-4.5 5.3-6.5 9-6.5s7.2 2 9 6.5"/></svg></span><b>Artistas</b><span>Foto, bio e links oficiais. Álbuns separados de remixes.</span></div>
+    <div class="cell"><span class="ic"><svg viewBox="0 0 28 28"><path d="M5 8h12M5 13h18M5 18h9M5 23h14"/></svg></span><b>Letra</b><span>Sincronizada, linha por linha.</span></div>
+    <div class="cell"><span class="ic"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><circle cx="14" cy="14" r="3"/></svg></span><b>Discos</b><span>Vinil ou CD em 3D girando no BPM.</span></div>
+    <div class="cell"><span class="ic"><svg viewBox="0 0 28 28"><rect x="6" y="6" width="16" height="16" rx="4"/><path d="M11 18l6-4-6-4z"/></svg></span><b>Miniplayer</b><span>Por cima das outras janelas, com teclas de mídia.</span></div>
+    <div class="cell"><span class="ic"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="5"/><path d="M14 3v3M14 22v3M3 14h3M22 14h3M6.2 6.2l2.1 2.1M19.7 19.7l2.1 2.1M6.2 21.8l2.1-2.1M19.7 8.3l2.1-2.1"/></svg></span><b>Luz da faixa</b><span>As cores da capa viram o fundo.</span></div>
+    <div class="cell big"><span class="ic"><svg viewBox="0 0 28 28"><path d="M4 18c3-6 6-6 9 0s6 6 11-4"/></svg></span><b>BPM e tom</b><span>Andamento e tom de cada música, na roda Camelot. Rádio que segue com o que combina.</span></div>
+    <div class="cell"><span class="ic"><svg viewBox="0 0 28 28"><path d="M20 17.5A9 9 0 0 1 10.5 8a9 9 0 1 0 9.5 9.5z"/></svg></span><b>Noturno</b><span>Claro ou escuro, no botão do topo.</span></div>
+    <div class="cell"><span class="ic"><svg viewBox="0 0 28 28"><path d="M4 11a15 15 0 0 1 20 0M8 15a9 9 0 0 1 12 0M12 19a3 3 0 0 1 4 0M4 4l20 20"/></svg></span><b>Sem internet</b><span>Toca tudo offline. Fotos e bios ficam guardadas.</span></div>
+  </div>
+</div></section>
+
+<section class="steps" id="instalar"><div class="wrap">
+  <h3>Instalar</h3>
+  <div class="st">
+    <div><em>1</em><b>Baixar</b><p>O arquivo <kbd>SoundBoy-instalador-0.9.exe</kbd>, 202 MB.</p></div>
+    <div><em>2</em><b>Abrir</b><p>O Windows pode avisar que o app não é reconhecido, porque ainda não tem assinatura. Clique em <kbd>Mais informações</kbd> e depois <kbd>Executar assim mesmo</kbd>.</p></div>
+    <div><em>3</em><b>Escolher as pastas</b><p>Na primeira abertura ele procura suas músicas e monta a biblioteca. Nada é movido nem apagado.</p></div>
+  </div>
+</div></section>
+
+<section class="log" id="novidades"><div class="wrap">
+  <h3>Novidades</h3>
+  <ol>
+    <li><span class="v num">0.9 · 14.11.2026</span>
+      <ul>
+        <li>Primeira versão pública</li>
+        <li>Página de artista com foto, bio, links e discografia separada de remixes</li>
+        <li>Luz da faixa, CD nas Capas e no Ouvindo agora</li>
+        <li>Modo noturno</li>
+      </ul></li>
+  </ol>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>SoundBoy · gratuito</span><span class="sp"></span>
+  <a href="https://github.com/lucasegydio/soundboy">GitHub</a>
+  <a href="https://github.com/lucasegydio/soundboy/releases">Versões</a>
+  <span>Colapse Corporation</span>
+</div></footer>
+
+<script>
+  // réguas do aparelho (bpm 124 numa régua de 60–180; tom 8 de 12)
+  const fill = (id, n, on) => { const el = document.getElementById(id); if (el) el.innerHTML = Array.from({ length: n }, (_, i) => `<i class="${i < on ? 'on' : ''}"></i>`).join(''); };
+  fill('tk', 24, Math.round((124 - 60) / 120 * 24));
+  fill('tk2', 12, 8);
+</script>
+</body>
+</html>
