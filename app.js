@@ -52,65 +52,6 @@ mood.addEventListener('input', () => {
   document.querySelector('.comparison').style.setProperty('--split', `${100 - Number(mood.value)}%`);
   mood.setAttribute('aria-valuetext', `${mood.value}% da tela no modo noturno`);
 });
-// Material studies are original illustrations, not screenshots of the application.
-const materials = {
-  vinyl: ['O começo de tudo.', 'Sulcos concêntricos, brilho sutil e a capa no selo. O vinil encontra uma nova superfície.', 'vinil'],
-  cd: ['A luz encontra o disco.', 'Prata, reflexos e um pouco de arco-íris. A memória do CD, em uma superfície digital.', 'CD'],
-  holo: ['Um disco. Muitas cores.', 'Reflexos holográficos para um objeto que muda com a luz. Uma das seis opções da tela Discos.', 'disco holográfico'],
-  picture: ['A arte ocupa tudo.', 'A capa deixa o centro e toma o disco inteiro. No aplicativo, o desenho vem do álbum que está tocando.', 'picture disc'],
-  opart: ['Os olhos também ouvem.', 'Contraste e repetição transformam o movimento em um padrão óptico. Experimente girar esta ilustração.', 'disco op-art'],
-  acrylic: ['Um pouco de transparência.', 'Acrílico translúcido, leveza e cor. No aplicativo, o material recebe a cor do gênero musical.', 'disco de acrílico']
-};
-const materialButtons = [...document.querySelectorAll('[data-material-choice]')];
-const disc = document.querySelector('.design-disc');
-let materialIndex = 0;
-function selectMaterial(index) {
-  materialIndex = index;
-  const id = materialButtons[index].dataset.materialChoice;
-  const [title, copy, label] = materials[id];
-  disc.dataset.material = id;
-  materialButtons.forEach((b, i) => b.setAttribute('aria-pressed', String(i === index)));
-  document.querySelector('#material-index').textContent = `0${index + 1} / 06`;
-  document.querySelector('#material-title').textContent = title;
-  document.querySelector('#material-copy').textContent = copy;
-  document.querySelector('#disc-preview').setAttribute('aria-label', `Ilustração de ${label}`);
-}
-materialButtons.forEach((button, i) => button.addEventListener('click', () => selectMaterial(i)));
-arrowNavigation(document.querySelector('.material-choices'), materialButtons, selectMaterial, () => materialIndex);
-const spinButton = document.querySelector('.motion-toggle');
-function stopSpin() { disc.classList.remove('spinning'); spinButton.setAttribute('aria-pressed','false'); spinButton.innerHTML = 'Girar ilustração <span aria-hidden="true">↻</span>'; }
-spinButton.addEventListener('click', () => {
-  if (disc.classList.contains('spinning')) return stopSpin();
-  disc.classList.add('spinning'); spinButton.setAttribute('aria-pressed','true');
-  spinButton.innerHTML = 'Pausar ilustração <span aria-hidden="true">Ⅱ</span>';
-});
-function motionPreference() {
-  stopSpin();
-  spinButton.disabled = reduceMotion.matches;
-  if (reduceMotion.matches) spinButton.textContent = 'Movimento reduzido ativado';
-}
-reduceMotion.addEventListener('change', motionPreference); motionPreference();
-const labStage = document.querySelector('.lab-stage');
-if ('IntersectionObserver' in window) new IntersectionObserver(entries => entries.forEach(entry => entry.target.classList.toggle('in-view', entry.isIntersecting))).observe(labStage);
-else labStage.classList.add('in-view');
-// Educational Camelot diagram. This does not simulate the Radio ranking engine.
-const keyNames = ['Lá♭ menor','Mi♭ menor','Si♭ menor','Fá menor','Dó menor','Sol menor','Ré menor','Lá menor','Mi menor','Si menor','Fá♯ menor','Dó♯ menor'];
-const keyButtons = [...document.querySelectorAll('[data-key]')];
-let chosenKey = 8;
-function selectKey(n) {
-  chosenKey = n; const before = n === 1 ? 12 : n - 1; const after = n === 12 ? 1 : n + 1;
-  keyButtons.forEach(button => {
-    const key = Number(button.dataset.key);
-    button.setAttribute('aria-pressed', String(key === n));
-    button.classList.toggle('neighbor', key === before || key === after);
-  });
-  document.querySelector('#key-value').textContent = `${n}A`;
-  document.querySelector('#key-name').textContent = keyNames[n - 1];
-  document.querySelector('#key-neighbors').textContent = `${before}A · ${after}A · ${n}B`;
-}
-keyButtons.forEach(button => button.addEventListener('click', () => selectKey(Number(button.dataset.key))));
-arrowNavigation(document.querySelector('.harmonic-wheel'), keyButtons, i => selectKey(i + 1), () => chosenKey - 1);
-selectKey(8);
 const artistData = [
   ['artista','Página do artista Kendrick Lamar no SoundBoy','01 / Página do artista'],
   ['artista-discos','Discografia de Kendrick Lamar organizada em álbuns, remixes e participações','02 / Discografia e participações'],
@@ -128,3 +69,23 @@ artistButtons.forEach((button, i) => button.addEventListener('click', () => sele
 arrowNavigation(document.querySelector('.artist-menu'), artistButtons, selectArtist, () => artistIndex);
 // Open the answer before taking the reader to it.
 document.querySelector('a[href="#faq-arquivos"]').addEventListener('click', () => { document.querySelector('#faq-arquivos').open = true; });
+
+// Every product image is an actual capture. Controls select or enlarge captures.
+document.querySelectorAll('[data-viewer]').forEach(viewer => {
+ const buttons=[...viewer.querySelectorAll('[data-capture]')];
+ const img=viewer.querySelector('img'); let index=0;
+ const select=i=>{index=i;const button=buttons[i];img.src='img/real/'+button.dataset.capture+'.png';img.alt=button.textContent+' — captura do SoundBoy';buttons.forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));viewer.querySelector('.capture-caption').textContent=button.textContent+' / Captura do aplicativo';viewer.querySelector('.image-open').setAttribute('aria-label','Ampliar '+button.textContent);};
+ buttons.forEach((b,i)=>b.addEventListener('click',()=>select(i)));
+ arrowNavigation(viewer.querySelector('.real-controls'),buttons,select,()=>index);
+ if(viewer.classList.contains('device-viewer')){
+  const zoom=document.createElement('button');zoom.type='button';zoom.className='detail-toggle';zoom.textContent='Ver detalhe +';zoom.setAttribute('aria-pressed','false');
+  zoom.addEventListener('click',()=>{const active=viewer.classList.toggle('detail-active');zoom.setAttribute('aria-pressed',String(active));zoom.textContent=active?'Ver tela completa −':'Ver detalhe +';});viewer.append(zoom);
+ }
+});
+const captureDialog=document.querySelector('.capture-dialog');
+document.querySelectorAll('.image-open').forEach(button=>button.addEventListener('click',()=>{
+ const source=button.querySelector('img'); const img=captureDialog.querySelector('img');img.src=source.src;img.alt=source.alt;
+ captureDialog.querySelector('p').textContent=source.alt;captureDialog.showModal();document.body.classList.add('capture-open');
+}));
+captureDialog.addEventListener('close',()=>document.body.classList.remove('capture-open'));
+captureDialog.addEventListener('click',e=>{if(e.target===captureDialog)captureDialog.close();});
