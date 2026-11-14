@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SoundBoy</title>
+<title>SoundBoy — Sua música. Em primeiro plano.</title>
 <meta name="description" content="SoundBoy: o player para as músicas que você guarda no computador. Capas grandes, a cor de cada disco, letras, artistas e cuidado com os seus arquivos. Gratuito para Windows.">
 <meta property="og:title" content="SoundBoy">
 <meta property="og:description" content="O player para as músicas que você guarda no computador. Gratuito para Windows.">
@@ -11,165 +11,45 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap">
-<style>
-/* folha de lançamento de produto: título enorme, uma ideia por tela, prints grandes do programa de verdade */
-:root {
-  --paper: #F6F5F1;
-  --ink: #141413;
-  --mut: #6E6D68;
-  --line: rgba(20,20,19,.1);
-  --card: #FFFFFF;
-  --or: #FF5B00;
-  --warm1: #FF6A13; --warm2: #F9BC29; --warm3: #FF2D55; --warm4: #EECBFD;
-  --f: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color-scheme: light;
-}
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.5 var(--f); -webkit-font-smoothing: antialiased; }
-img { max-width: 100%; display: block; }
-a { color: inherit; }
-.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
-.eyebrow { font-size: 15px; font-weight: 600; letter-spacing: -.01em; color: var(--or); }
-h1, h2, h3 { margin: 0; text-wrap: balance; }
-
-/* topo fixo, vidro */
-nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(246,245,241,.78); -webkit-backdrop-filter: saturate(1.6) blur(18px); backdrop-filter: saturate(1.6) blur(18px); border-bottom: 1px solid var(--line); }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
-nav.top .wrap { display: flex; align-items: center; gap: 26px; height: 52px; }
-.mark { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 18px; letter-spacing: -.03em; text-decoration: none; }
-.mark i { width: 16px; height: 16px; border-radius: 50%; background: conic-gradient(from 200deg, var(--warm2), var(--warm1), var(--warm3), var(--warm4), var(--warm2)); }
-nav.top .links { margin-left: auto; display: flex; gap: 26px; font-size: 14px; }
-nav.top .links a { text-decoration: none; color: var(--mut); }
-nav.top .links a:hover { color: var(--ink); }
-.pill { display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 16px; border-radius: 999px; background: var(--ink); color: var(--paper); font-size: 14px; font-weight: 600; text-decoration: none; }
-
-/* hero */
-.hero { position: relative; padding-block: 88px 0; text-align: center; overflow: hidden; }
-.hero .glow { position: absolute; left: 50%; top: 420px; width: 1400px; height: 900px; transform: translateX(-50%); z-index: 0; pointer-events: none; filter: blur(60px); opacity: .55;
-  background: radial-gradient(36% 40% at 30% 50%, var(--warm2), transparent 70%), radial-gradient(34% 38% at 70% 45%, var(--warm3), transparent 70%), radial-gradient(40% 40% at 50% 70%, var(--warm1), transparent 72%);
-  animation: drift 18s ease-in-out infinite alternate; }
-@keyframes drift { to { transform: translateX(-50%) translateY(-30px) scale(1.06); } }
-.hero > .wrap { position: relative; z-index: 1; }
-.hero h1 { font-size: clamp(76px, 15vw, 196px); font-weight: 800; letter-spacing: -.07em; line-height: .86; }
-.hero .lede { margin: 26px auto 0; max-width: 24ch; font-size: clamp(24px, 3.2vw, 40px); font-weight: 600; letter-spacing: -.035em; line-height: 1.12; }
-.cta { display: flex; justify-content: center; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 34px; }
-.dl { display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 28px 0 24px; border-radius: 999px; background: var(--or); color: #fff; font-weight: 600; font-size: 17px; text-decoration: none; box-shadow: 0 14px 30px -12px rgba(255,91,0,.65); transition: transform .15s, box-shadow .15s; }
-.dl:hover { transform: translateY(-1px); box-shadow: 0 18px 36px -12px rgba(255,91,0,.75); }
-.dl:focus-visible, .pill:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
-.dl svg { width: 20px; height: 20px; }
-.meta { font-size: 14px; color: var(--mut); }
-.meta a { color: var(--mut); }
-.screen { position: relative; border-radius: 14px; overflow: hidden; background: var(--card); box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 50px 100px -40px rgba(60,20,0,.45), 0 0 0 1px rgba(20,20,19,.08); }
-.screen img { width: 100%; height: auto; }
-.hero .screen { margin: 64px auto 0; max-width: 1180px; }
-
-/* bloco de frase grande */
-.say { padding-block: 150px 40px; }
-.say p { margin: 0; font-size: clamp(30px, 4.4vw, 58px); font-weight: 600; letter-spacing: -.045em; line-height: 1.08; max-width: 22ch; }
-.say p span { color: var(--mut); }
-
-/* recurso: título + texto + print */
-.feat { padding-block: 120px 0; }
-.feat .head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 40px; align-items: end; margin-bottom: 44px; }
-.feat h2 { font-size: clamp(42px, 6vw, 84px); font-weight: 700; letter-spacing: -.06em; line-height: .95; }
-.feat .txt { font-size: 19px; line-height: 1.5; color: var(--mut); max-width: 44ch; }
-.feat .txt b { color: var(--ink); font-weight: 600; }
-.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-.cap { margin-top: 14px; font-size: 14px; color: var(--mut); }
-
-/* luz: faixa colorida atrás do print */
-.lit { position: relative; border-radius: 34px; padding: 56px; overflow: hidden; isolation: isolate; }
-.lit::before { content: ""; position: absolute; inset: -20%; z-index: -1; filter: blur(50px);
-  background: radial-gradient(40% 50% at 20% 70%, #ff7a1a, transparent 70%), radial-gradient(40% 46% at 82% 30%, #ff3d6e, transparent 72%), radial-gradient(50% 50% at 60% 100%, #f9bc29, transparent 70%), #ffb36b; }
-.lit .screen { box-shadow: 0 40px 90px -30px rgba(90,20,0,.55); }
-
-/* noturno: faixa escura */
-.night { margin-top: 140px; background: #0F0F0E; color: #F3F3F0; padding-block: 120px; }
-.night .txt { color: #9A9A92; }
-.night .txt b { color: #F3F3F0; }
-.night .eyebrow { color: #FFB36B; }
-.night .screen { background: #000; box-shadow: 0 50px 120px -40px rgba(255,120,30,.35), 0 0 0 1px rgba(255,255,255,.08); }
-
-/* ficha técnica */
-.spec { padding-block: 130px 0; }
-.spec h2 { font-size: clamp(38px, 5vw, 64px); font-weight: 700; letter-spacing: -.055em; line-height: 1; margin-bottom: 40px; }
-.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
-.grid div { padding: 22px 22px 26px 0; border-bottom: 1px solid var(--line); min-width: 0; }
-.grid b { display: block; font-size: 21px; font-weight: 600; letter-spacing: -.025em; margin-bottom: 6px; }
-.grid span { font-size: 15px; color: var(--mut); line-height: 1.45; }
-
-/* baixar */
-.get { padding-block: 150px 120px; text-align: center; }
-.get h2 { font-size: clamp(48px, 8vw, 112px); font-weight: 800; letter-spacing: -.065em; line-height: .9; }
-.get .lede { margin: 20px auto 0; max-width: 30ch; font-size: 22px; color: var(--mut); letter-spacing: -.02em; }
-.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 70px auto 0; max-width: 1040px; text-align: left; }
-.steps div { background: var(--card); border-radius: 22px; padding: 24px; box-shadow: 0 0 0 1px var(--line); min-width: 0; }
-.steps em { font-style: normal; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 700; margin-bottom: 14px; }
-.steps b { display: block; font-size: 19px; letter-spacing: -.02em; margin-bottom: 6px; }
-.steps p { margin: 0; font-size: 15px; color: var(--mut); line-height: 1.45; }
-.steps kbd { font: inherit; font-weight: 600; color: var(--ink); }
-.soon { margin-top: 56px; font-size: 15px; color: var(--mut); }
-.soon b { color: var(--ink); }
-
-footer { border-top: 1px solid var(--line); padding-block: 28px 44px; font-size: 13px; color: var(--mut); }
-footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 26px; }
-footer .sp { flex: 1; }
-footer a { text-decoration: none; }
-footer a:hover { color: var(--ink); }
-footer p { flex-basis: 100%; margin: 6px 0 0; font-size: 12px; }
-
-@media (max-width: 900px) {
-  .feat .head { grid-template-columns: 1fr; gap: 16px; }
-  .two, .steps { grid-template-columns: 1fr; }
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .lit { padding: 22px; border-radius: 24px; }
-  nav.top .links { display: none; }
-  nav.top .pill { margin-left: auto; }
-}
-@media (max-width: 520px) { .grid { grid-template-columns: 1fr; } .say { padding-top: 100px; } .feat { padding-top: 90px; } }
-@media (prefers-reduced-motion: reduce) { .hero .glow { animation: none; } html { scroll-behavior: auto; } }
-</style>
+<link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
 </head>
-<body>
+<body><a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-<nav class="top"><div class="wrap">
+<nav class="top" aria-label="Principal"><div class="wrap">
   <a class="mark" href="#"><i></i>SoundBoy</a>
-  <div class="links"><a href="#luz">A luz</a><a href="#artistas">Artistas</a><a href="#arquivos">Seus arquivos</a><a href="#ficha">Ficha</a></div>
+  <div class="links"><a href="#luz">A experiência</a><a href="#artistas">Artistas</a><a href="#arquivos">Seus arquivos</a><a href="#ficha">Nos detalhes</a></div>
   <a class="pill" href="#baixar">Baixar</a>
 </div></nav>
 
-<main>
+<main id="conteudo">
 <section class="hero">
   <div class="glow" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="eyebrow">Novo · gratuito para Windows</div>
-    <h1>SoundBoy</h1>
-    <p class="lede">As músicas que você guardou merecem ser ouvidas assim.</p>
+    <div class="eyebrow">PARA QUEM AMA MÚSICA.</div>
+    <h1>Sua música.<br><span>Em primeiro plano.</span></h1>
+    <p class="lede">Os discos que marcaram você.<br>Um novo jeito de se perder neles.</p>
     <div class="cta">
       <a class="dl" href="https://github.com/lucasegydio/soundboy/releases/latest/download/SoundBoy-instalador-0.9.exe">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>Baixar o SoundBoy</a>
-      <span class="meta">Windows 10 e 11 · 202 MB · versão 0.9</span>
+      <a class="explore" href="#luz">Explore a experiência ↗</a>
     </div>
-    <div class="screen"><img src="img/shots/capas.webp" width="2400" height="1500" alt="SoundBoy, tela Capas: discos lado a lado, com o CD saindo da capa do meio, Untrue do Burial"></div>
+    <p class="meta">Gratuito. Windows 10 e 11. Sem assinatura.</p><div class="screen hero-screen"><img fetchpriority="high" src="img/shots/capas.webp" width="2400" height="1500" alt="SoundBoy, tela Capas: discos lado a lado, com o CD saindo da capa do meio, Untrue do Burial"></div>
   </div>
 </section>
 
-<section class="say"><div class="wrap">
-  <p>Aquele disco que você baixou em 2009. O FLAC que você caçou por semanas. A demo que ninguém mais tem. <span>Eles estão no seu computador, numa pasta qualquer, esperando alguém dar play do jeito certo.</span></p>
-</div></section>
+<section class="say"><div class="wrap"><div class="eyebrow">NÃO É SÓ DAR PLAY.</div><h2>É voltar a sentir<br>o que fez você<br><span>guardar aquela música.</span></h2><p>O FLAC que você procurou por semanas. A demo que ninguém mais tem. O disco que atravessou a sua vida. Sua coleção tem história. O SoundBoy dá a ela espaço para acontecer.</p><div class="ritual"><span>Seus arquivos.</span><span>Seu ritual.</span><span>Sua música.</span></div></div></section>
 
 <section class="feat" id="luz"><div class="wrap">
   <div class="head">
-    <div><div class="eyebrow">Ouvindo agora</div><h2>Cada disco acende a tela com a cor dele.</h2></div>
+    <div><div class="eyebrow">Ouvindo agora</div><h2>Um outro lado<br>de cada disco.</h2></div>
     <p class="txt">O SoundBoy tira as cores da capa e transforma em luz. Ela respira no andamento da música e para quando você pausa. O CD sai da capa e gira enquanto toca. Do lado, <b>BPM, tom e qualidade do arquivo</b>, pra quem gosta de saber o que está ouvindo.</p>
   </div>
-  <div class="lit"><div class="screen"><img src="img/shots/ouvindo.webp" width="2400" height="1500" loading="lazy" alt="Ouvindo agora: Bus Ride, da Kaytranada, com a luz tirada das cores da capa de 99.9% e a fila ao lado"></div></div>
+  <div class="gallery" role="region" aria-roledescription="carrossel" aria-label="Telas do SoundBoy"><div class="gallery-stage"><figure class="slide" id="slide-0" ><div class="screen"><img src="img/shots/ouvindo.webp" width="2400" height="1500" loading="lazy" alt="Tela Ouvindo agora do SoundBoy"></div><figcaption><span>01 / OUVINDO AGORA</span><h3>A cor do disco. O clima da música.</h3><p>A paleta da capa vira luz. BPM, tom e qualidade ficam por perto.</p></figcaption></figure><figure class="slide" id="slide-1" hidden><div class="screen"><img src="img/shots/capas.webp" width="2400" height="1500" loading="lazy" alt="Tela Capas do SoundBoy"></div><figcaption><span>02 / CAPAS</span><h3>Uma coleção para se perder.</h3><p>Seus álbuns em uma estante visual. Escolher o próximo disco faz parte do prazer.</p></figcaption></figure><figure class="slide" id="slide-2" hidden><div class="screen"><img src="img/shots/discos.webp" width="2400" height="1500" loading="lazy" alt="Tela Discos do SoundBoy"></div><figcaption><span>03 / DISCOS</span><h3>O ritual também é digital.</h3><p>Vinil, CD ou picture disc. Um novo encontro com o álbum inteiro.</p></figcaption></figure></div><div class="gallery-controls"><div class="segments" aria-label="Escolher tela"><button type="button" data-slide="0" aria-pressed="true" aria-controls="slide-0">Ouvindo agora</button><button type="button" data-slide="1" aria-pressed="false" aria-controls="slide-1">Capas</button><button type="button" data-slide="2" aria-pressed="false" aria-controls="slide-2">Discos</button></div><div class="arrows"><button type="button" data-direction="-1" aria-label="Tela anterior">←</button><button type="button" data-direction="1" aria-label="Próxima tela">→</button></div></div><p class="sr-only" id="slide-status" aria-live="polite">Tela 1 de 3: Ouvindo agora</p></div>
 </div></section>
 
 <section class="feat" id="artistas"><div class="wrap">
   <div class="head">
-    <div><div class="eyebrow">Artistas</div><h2>Uma página pra cada artista que você ama.</h2></div>
+    <div><div class="eyebrow">Artistas</div><h2>Por trás da música.<br>Mais história.</h2></div>
     <p class="txt">Foto, bio e links oficiais. As suas mais tocadas. <b>Álbuns separados de remixes, edits e participações</b>, porque a discografia de verdade não é a mesma coisa que a pasta de downloads. E quando o programa erra, você corrige.</p>
   </div>
   <div class="screen"><img src="img/shots/artista.webp" width="2400" height="1500" loading="lazy" alt="Página do artista Kendrick Lamar, com foto grande e as faixas recentes"></div>
@@ -181,7 +61,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; font-size: 12px; }
 
 <section class="feat" id="arquivos"><div class="wrap">
   <div class="head">
-    <div><div class="eyebrow">Seus arquivos</div><h2>O mesmo disco, cinco vezes, em três pastas.</h2></div>
+    <div><div class="eyebrow">Seus arquivos</div><h2>Menos cópias.<br>Mais coleção.</h2></div>
     <p class="txt">Todo mundo tem. O SoundBoy acha as cópias, <b>sugere ficar com a de melhor qualidade</b> (WAV e FLAC na frente), deixa você ouvir uma prévia de cada versão e escolher. As cópias somem das listas. <b>Nenhum arquivo é apagado</b> sem você mandar.</p>
   </div>
   <div class="screen"><img src="img/shots/duplicadas.webp" width="2400" height="1500" loading="lazy" alt="Duplicadas de 808s And Heartbreak: a versão FLAC marcada como a que fica"></div>
@@ -189,7 +69,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; font-size: 12px; }
 
 <section class="feat"><div class="wrap">
   <div class="head">
-    <div><div class="eyebrow">Discos</div><h2>Um toca-discos inteiro na sua tela.</h2></div>
+    <div><div class="eyebrow">Discos</div><h2>O ritual também<br>é digital.</h2></div>
     <p class="txt">Vinil, CD, picture disc. O disco gira no BPM da música, com a capa no selo. Dá pra trocar de aparelho, escolher o disco na estante e gravar um trecho.</p>
   </div>
   <div class="screen"><img src="img/shots/discos.webp" width="2400" height="1500" loading="lazy" alt="Tela Discos: vinil em 3D tocando Say You Will, do Kanye West"></div>
@@ -197,19 +77,19 @@ footer p { flex-basis: 100%; margin: 6px 0 0; font-size: 12px; }
 
 <section class="night"><div class="wrap">
   <div class="feat" style="padding:0"><div class="head">
-    <div><div class="eyebrow">Noturno</div><h2>Pra ouvir de luz apagada.</h2></div>
+    <div><div class="eyebrow">Noturno</div><h2>O dia termina.<br><span>A música continua.</span></h2></div>
     <p class="txt">O modo noturno deixa tudo escuro e só a música brilha. <b>Um botão no topo</b> troca, e o SoundBoy lembra da sua escolha.</p>
   </div></div>
-  <div class="screen"><img src="img/shots/noturno.webp" width="2400" height="1500" loading="lazy" alt="Modo noturno: Harpsichord, do Four Tet, com a luz tirada da capa de Sixteen Oceans"></div>
+  <div class="comparison" style="--split:50%"><div class="comparison-images"><img src="img/shots/ouvindo.webp" width="2400" height="1500" loading="lazy" alt="Tela do SoundBoy em modo claro"><div class="night-overlay"><img src="img/shots/noturno.webp" width="2400" height="1500" loading="lazy" alt="Tela do SoundBoy em modo noturno"></div><div class="divider" aria-hidden="true"><span>↔</span></div><span class="mode-label day-label">Claro</span><span class="mode-label night-label">Noturno</span></div><div class="slider-control"><span aria-hidden="true">☀</span><label class="sr-only" for="mood">Revelar modo noturno</label><input id="mood" type="range" min="0" max="100" value="50" aria-valuetext="50% da tela no modo noturno"><span aria-hidden="true">☾</span></div><p class="night-note">Deslize para explorar duas telas reais do aplicativo.</p></div>
 </div></section>
 
 <section class="spec" id="ficha"><div class="wrap">
-  <h2>Ficha técnica.</h2>
+  <h2>O cuidado está<br>nos detalhes.</h2>
   <div class="grid">
     <div><b>Seus formatos</b><span>MP3, WAV, FLAC, AIFF, M4A, OGG. Sem converter nada.</span></div>
     <div><b>Sem conta</b><span>Nada de login, assinatura ou anúncio.</span></div>
     <div><b>Funciona offline</b><span>Toca tudo sem internet. Fotos e bios ficam guardadas.</span></div>
-    <div><b>Gratuito</b><span>Agora e depois. Código aberto em breve.</span></div>
+    <div><b>Gratuito</b><span>Sem assinatura e sem anúncios. Sua coleção em primeiro lugar.</span></div>
     <div><b>Letras</b><span>Sincronizadas, linha por linha, quando existem.</span></div>
     <div><b>BPM e tom</b><span>De cada música, na roda Camelot. Rádio que segue o que combina.</span></div>
     <div><b>Miniplayer</b><span>Por cima das outras janelas, com as teclas de mídia do teclado.</span></div>
@@ -218,7 +98,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; font-size: 12px; }
 </div></section>
 
 <section class="get" id="baixar"><div class="wrap">
-  <h2>Dê play no que é seu.</h2>
+  <div class="sound-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="eyebrow">SUA PRÓXIMA PRIMEIRA AUDIÇÃO.</div><h2>Dê play<br>no que é seu.</h2>
   <p class="lede">Gratuito para Windows 10 e 11. Instala sem administrador.</p>
   <div class="cta">
     <a class="dl" href="https://github.com/lucasegydio/soundboy/releases/latest/download/SoundBoy-instalador-0.9.exe">
@@ -226,8 +106,8 @@ footer p { flex-basis: 100%; margin: 6px 0 0; font-size: 12px; }
     <span class="meta">202 MB · <a href="https://github.com/lucasegydio/soundboy/releases">todas as versões</a></span>
   </div>
   <div class="steps">
-    <div><em>1</em><b>Baixe</b><p>O arquivo <kbd>SoundBoy-instalador-0.9.exe</kbd>.</p></div>
-    <div><em>2</em><b>Abra</b><p>O Windows pode avisar que o app não é reconhecido, porque ele ainda não tem assinatura. Clique em <kbd>Mais informações</kbd> e depois em <kbd>Executar assim mesmo</kbd>.</p></div>
+    <div><em>1</em><b>Baixe</b><p>O instalador oficial do SoundBoy, disponível na página de versões.</p></div>
+    <div><em>2</em><b>Abra</b><p>O instalador ainda não tem assinatura digital. Se o Windows exibir um aviso, confira a origem do arquivo na página oficial de versões antes de instalar.</p></div>
     <div><em>3</em><b>Escolha suas pastas</b><p>Na primeira vez, o SoundBoy procura as músicas do computador e monta a biblioteca. Nada é movido nem apagado.</p></div>
   </div>
   <p class="soon"><b>Vision</b>, o simulador de DJ, está a caminho.</p>
