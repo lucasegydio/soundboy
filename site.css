@@ -195,3 +195,7 @@ p { margin: 0; }
 }
 
 .block h2, .split h2, .local-h, .get h2 { text-wrap: balance; }
+/* quebras de linha: títulos equilibrados, parágrafos sem palavra sozinha na última linha */
+h1, h2, h3 { text-wrap: balance; }
+p, .lede, .tile p, .local-grid p, .trio p, .faq details p { text-wrap: pretty; }
+.tile h3 { max-width: 16ch; }
