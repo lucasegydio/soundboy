@@ -3,38 +3,213 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SoundBoy — Sua coleção. Em outra dimensão.</title>
-<meta name="description" content="Um player para quem coleciona música. Capas, discos em 3D, rádio por BPM e tom, letras e miniplayer. Seus arquivos, no seu Windows. Gratuito.">
-<meta name="theme-color" content="#f5f5f7">
-<meta property="og:title" content="SoundBoy — Sua coleção. Em outra dimensão.">
-<meta property="og:description" content="Explore cada disco. Encontre novas conexões. Redescubra a música que já é sua. Gratuito para Windows.">
-<meta property="og:image" content="https://lucasegydio.github.io/soundboy/img/shots/capas.webp">
+<title>SoundBoy · Player gratuito para Windows</title>
+<meta name="description" content="SoundBoy é um player gratuito para a música que está no seu computador. Capas, letras, discos em 3D, rádio por BPM e tom e miniplayer. Sem conta e sem assinatura.">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="SoundBoy · Player gratuito para Windows">
+<meta property="og:description" content="A música que você guardou, tocada do jeito que ela merece. Gratuito, sem conta e sem assinatura.">
+<meta property="og:image" content="https://lucasegydio.github.io/soundboy/img/v2/capas.webp">
 <meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%231FB5A8'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='white' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="styles.css?v=3"><link rel="stylesheet" href="editorial.css?v=3">
-<script src="app.js?v=3" defer></script>
-<link rel="stylesheet" href="product.css?v=3">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="site.css?v=4">
+<script src="site.js?v=4" defer></script>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<nav class="top" aria-label="Principal"><div class="wrap"><a class="mark" href="#inicio"><i aria-hidden="true"></i>SoundBoy</a><div class="links"><a href="#imersao">Imersão</a><a href="#aparelhos">Discos</a><a href="#explorar">Explorar</a><a href="#colecionar">Colecionar</a><a href="#ficha">Especificações</a></div><a class="pill" href="#baixar">Baixar ↓</a></div></nav>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#topo" aria-label="SoundBoy"><span class="mark" aria-hidden="true"></span>SoundBoy</a>
+    <nav class="nav-links" aria-label="Seções">
+      <a href="#ouvir">Ouvir</a><a href="#discos">Discos</a><a href="#colecao">Coleção</a><a href="#perguntas">Perguntas</a>
+    </nav>
+    <a class="pill-dl" href="#baixar">Baixar</a>
+  </div>
+</header>
+
 <main id="conteudo">
-<section class="hero" id="inicio"><div class="wrap"><div class="product-id"><span>SOUNDBOY</span><span>PLAYER PESSOAL / WINDOWS</span></div><h1>Sua coleção.<br><span>Em outra dimensão.</span></h1><p class="lede">Um player para quem coleciona música.<br>Explore cada disco. Redescubra o que já é seu.</p><div class="cta"><a class="dl" href="https://github.com/lucasegydio/soundboy/releases/latest/download/SoundBoy-instalador-0.9.1.exe">Baixar o SoundBoy <span aria-hidden="true">↓</span></a><a class="explore" href="#imersao">Conheça por dentro <span aria-hidden="true">↗</span></a></div><p class="meta">Gratuito · Windows 10 e 11 · Sem assinatura</p><div class="screen hero-screen"><img src="img/shots/capas.webp" width="2400" height="1500" fetchpriority="high" alt="SoundBoy: capas de álbuns em perspectiva, com Untrue do Burial em destaque"></div></div></section>
-<section class="overview wrap" aria-label="Conheça o SoundBoy"><div class="overview-intro"><p>Você escolheu<br>cada disco.</p><p>O SoundBoy reúne seus arquivos em uma biblioteca feita para explorar. Das capas às histórias. Do primeiro play à próxima descoberta.</p></div><div class="chapter-links"><a href="#imersao"><span>01 / OUVIR</span><strong>Entre no disco.</strong><span aria-hidden="true">↘</span></a><a href="#explorar"><span>02 / EXPLORAR</span><strong>Siga as conexões.</strong><span aria-hidden="true">↘</span></a><a href="#colecionar"><span>03 / COLECIONAR</span><strong>Cuide do que é seu.</strong><span aria-hidden="true">↘</span></a></div></section>
-<section class="chapter immersion" id="imersao"><div class="wrap"><header class="head reveal"><div><p class="eyebrow">TELA CHEIA / SETE VISUAIS</p><h2>O som ocupa<br>outro espaço.</h2></div><p class="txt">Luz, textura e movimento. Abra a tela cheia e veja sua música ganhar uma linguagem visual. Sete atmosferas para explorar, com cores que você pode escolher.</p></header><div class="real-viewer " data-viewer="visuals"><div class="real-stage"><button class="image-open" type="button" aria-label="Ampliar Térmico"><img src="img/real/visual-termico.png" alt="Térmico — captura do SoundBoy" loading="lazy" width="2560" height="1080"><span>Ampliar ↗</span></button></div><div class="real-controls" aria-label="Escolher captura"><button type="button" data-capture="visual-termico" aria-pressed="true">Térmico</button><button type="button" data-capture="visual-gradiente" aria-pressed="false">Gradiente</button><button type="button" data-capture="visual-aurora" aria-pressed="false">Aurora</button><button type="button" data-capture="visual-liquido" aria-pressed="false">Líquido</button><button type="button" data-capture="visual-espelho" aria-pressed="false">Espelho</button><button type="button" data-capture="visual-pontos" aria-pressed="false">Pontos</button><button type="button" data-capture="visual-alvos" aria-pressed="false">Alvos</button></div><p class="capture-caption" aria-live="polite">Térmico / Captura do aplicativo</p></div><div class="immersive-facts"><p><strong>07</strong><span>visuais para mudar o clima</span></p><p><strong>03</strong><span>estilos de letra para entrar na música</span></p><p><strong>01</strong><span>tecla para abrir tudo: V</span></p></div></div></section><section class="chapter lyric-story"><div class="wrap"><header class="head reveal"><div><p class="eyebrow">LETRAS / LINHA · CINÉTICA · PÔSTER</p><h2>Palavras que<br>também tocam.</h2></div><p class="txt">Acompanhe cada verso. Deixe as palavras dançarem. Ou transforme a tela em um pôster vivo. Três maneiras de ver a letra, no tempo da música.</p></header><div class="real-viewer " data-viewer="lyrics"><div class="real-stage"><button class="image-open" type="button" aria-label="Ampliar Pôster"><img src="img/real/lyrics-poster.png" alt="Pôster — captura do SoundBoy" loading="lazy" width="2560" height="1080"><span>Ampliar ↗</span></button></div><div class="real-controls" aria-label="Escolher captura"><button type="button" data-capture="lyrics-poster" aria-pressed="true">Pôster</button><button type="button" data-capture="lyrics-kinetic" aria-pressed="false">Cinética</button><button type="button" data-capture="lyrics-line" aria-pressed="false">Linha</button></div><p class="capture-caption" aria-live="polite">Pôster / Captura do aplicativo</p></div><p class="availability">Letras sincronizadas quando disponíveis. As imagens mostram momentos capturados dos estilos em reprodução.</p></div></section>
-<section class="chapter listening" id="ouvir"><div class="wrap"><header class="head reveal"><div><p class="eyebrow">01 / OUVIR</p><h2>O álbum inteiro.<br>Inclusive a atmosfera.</h2></div><p class="txt">Escolha pela capa. Entre no álbum. Acompanhe a faixa com letra, informações e músicas relacionadas. Cada vista revela um lado da sua coleção.</p></header><div class="gallery" role="region" aria-roledescription="carrossel" aria-label="Telas do SoundBoy"><div class="gallery-stage"><figure class="slide" id="slide-0" ><div class="screen"><img src="img/shots/ouvindo.webp" width="2400" height="1500" loading="lazy" alt="Tela Ouvindo agora do SoundBoy"></div><figcaption><span>01 / OUVINDO AGORA</span><h3>A cor do disco. O clima da música.</h3><p>A paleta da capa vira luz. BPM, tom e qualidade ficam por perto.</p></figcaption></figure><figure class="slide" id="slide-1" hidden><div class="screen"><img src="img/shots/capas.webp" width="2400" height="1500" loading="lazy" alt="Tela Capas do SoundBoy"></div><figcaption><span>02 / CAPAS</span><h3>Uma coleção para se perder.</h3><p>Seus álbuns em uma estante visual. Escolher o próximo disco faz parte do prazer.</p></figcaption></figure><figure class="slide" id="slide-2" hidden><div class="screen"><img src="img/shots/discos.webp" width="2400" height="1500" loading="lazy" alt="Tela Discos do SoundBoy"></div><figcaption><span>03 / DISCOS</span><h3>O ritual também é digital.</h3><p>Vinil, CD ou picture disc. Um novo encontro com o álbum inteiro.</p></figcaption></figure></div><div class="gallery-controls"><div class="segments" aria-label="Escolher tela"><button type="button" data-slide="0" aria-pressed="true" aria-controls="slide-0">Ouvindo agora</button><button type="button" data-slide="1" aria-pressed="false" aria-controls="slide-1">Capas</button><button type="button" data-slide="2" aria-pressed="false" aria-controls="slide-2">Discos</button></div><div class="arrows"><button type="button" data-direction="-1" aria-label="Tela anterior">←</button><button type="button" data-direction="1" aria-label="Próxima tela">→</button></div></div><p class="sr-only" id="slide-status" aria-live="polite">Tela 1 de 3: Ouvindo agora</p></div><div class="detail-strip"><article><span>01.1</span><h3>A capa dá o tom.</h3><p>As cores do álbum iluminam a interface e acompanham a reprodução.</p></article><article><span>01.2</span><h3>Olhos na letra.</h3><p>Quando há letra sincronizada, cada verso aparece no tempo da música.</p></article><article><span>01.3</span><h3>O próximo play é seu.</h3><p>Coloque uma faixa a seguir, reorganize a fila ou deixe o álbum tocar na ordem.</p></article></div></div></section>
-<section class="instrument chapter" id="aparelhos"><div class="wrap"><header class="head reveal"><div><p class="eyebrow">DISCOS / QUATRO CENAS EM 3D</p><h2>O prazer está<br>no ritual.</h2></div><p class="txt">O reflexo do CD. Os sulcos do vinil. A agulha no toca-discos. Troque de aparelho, explore materiais e veja o álbum encontrar uma nova forma de tocar.</p></header><div class="real-viewer device-viewer" data-viewer="devices"><div class="real-stage"><button class="image-open" type="button" aria-label="Ampliar Portátil"><img src="img/real/disco-portatil.png" alt="Portátil — captura do SoundBoy" loading="lazy" width="2560" height="1080"><span>Ampliar ↗</span></button></div><div class="real-controls" aria-label="Escolher captura"><button type="button" data-capture="disco-portatil" aria-pressed="true">Portátil</button><button type="button" data-capture="disco-toca" aria-pressed="false">Toca-discos</button><button type="button" data-capture="disco-case" aria-pressed="false">Case</button><button type="button" data-capture="disco-cd" aria-pressed="false">CD</button><button type="button" data-capture="disco-vinil" aria-pressed="false">Vinil</button></div><p class="capture-caption" aria-live="polite">Portátil / Captura do aplicativo</p></div><div class="detail-strip"><article><span>MATERIAIS</span><h3>Seis superfícies.</h3><p>Vinil, CD, holográfico, picture, op-art e acrílico. Cada material muda a presença do disco.</p></article><article><span>VITRINE</span><h3>Uma nova cena a cada faixa.</h3><p>Deixe o SoundBoy alternar aparelhos e materiais enquanto a música continua.</p></article><article><span>GRAVAÇÃO</span><h3>Guarde o momento.</h3><p>Grave até 60 segundos da cena com áudio, direto no aplicativo.</p></article></div></div></section>
-<section class="night"><div class="wrap"><div class="feat" style="padding:0"><header class="head"><div><p class="eyebrow">LUZ / MODO NOTURNO</p><h2>Menos luz.<br><span>Mais presença.</span></h2></div><p class="txt">Do claro ao noturno em um toque. A música continua no centro, e o SoundBoy lembra como você gosta de ouvir.</p></header></div><div class="comparison" style="--split:50%"><div class="comparison-images"><img src="img/shots/ouvindo.webp" width="2400" height="1500" loading="lazy" alt="Tela do SoundBoy em modo claro"><div class="night-overlay"><img src="img/shots/noturno.webp" width="2400" height="1500" loading="lazy" alt="Tela do SoundBoy em modo noturno"></div><div class="divider" aria-hidden="true"><span>↔</span></div><span class="mode-label day-label">Claro</span><span class="mode-label night-label">Noturno</span></div><div class="slider-control"><span aria-hidden="true">☀</span><label class="sr-only" for="mood">Revelar modo noturno</label><input id="mood" type="range" min="0" max="100" value="50" aria-valuetext="50% da tela no modo noturno"><span aria-hidden="true">☾</span></div><p class="night-note">Deslize para explorar duas telas reais do aplicativo.</p></div></div></section>
-<section class="chapter discovery" id="explorar"><div class="wrap"><header class="head reveal"><div><p class="eyebrow">02 / EXPLORAR</p><h2>Uma faixa.<br>Novos caminhos.</h2></div><p class="txt">Ligue o Rádio e deixe a coleção conversar. O SoundBoy procura a próxima música por BPM e tonalidade, variando os artistas pelo caminho.</p></header><figure class="radio-real"><button type="button" class="image-open" aria-label="Ampliar Ouvindo agora"><img src="img/shots/ouvindo.webp" alt="Ouvindo agora no SoundBoy, com informações da faixa e músicas relacionadas" loading="lazy" width="2400" height="1500"><span>Ampliar ↗</span></button></figure><div class="detail-strip"><article><span>ANDAMENTO</span><h3>Encontre o ritmo.</h3><p>O BPM aproxima faixas pelo andamento. Uma forma diferente de percorrer o que você já tem.</p></article><article><span>TONALIDADE</span><h3>Ouça as conexões.</h3><p>O tom ajuda a encontrar combinações harmônicas entre músicas da biblioteca.</p></article><article><span>SUA BIBLIOTECA</span><h3>Redescubra o que ficou.</h3><p>A próxima surpresa pode estar em um álbum que você não ouve há tempos.</p></article></div></div></section>
-<section class="artist-story chapter"><div class="wrap"><header class="head reveal"><div><p class="eyebrow">ARTISTAS / MAIS PERTO</p><h2>Você conhece a voz.<br>Conheça o resto.</h2></div><p class="txt">Biografia, fotos e links oficiais ao lado da música que você guardou. Álbuns, remixes e participações ganham seus próprios lugares.</p></header><div class="artist-explorer"><div class="artist-menu" aria-label="Explorar artistas"><button type="button" data-artist="0" aria-pressed="true" aria-controls="artist-screen"><span>01</span><strong>O artista.</strong><small>Foto, história e as suas faixas mais tocadas.</small></button><button type="button" data-artist="1" aria-pressed="false" aria-controls="artist-screen"><span>02</span><strong>A discografia.</strong><small>Álbuns, remixes e participações. Cada um no seu lugar.</small></button><button type="button" data-artist="2" aria-pressed="false" aria-controls="artist-screen"><span>03</span><strong>As conexões.</strong><small>Navegue pela coleção por gênero e país.</small></button></div><figure id="artist-screen"><div class="screen"><img src="img/shots/artista.webp" width="2400" height="1500" loading="lazy" decoding="async" alt="Página do artista Kendrick Lamar no SoundBoy" id="artist-image"></div><figcaption id="artist-caption" aria-live="polite">01 / Página do artista</figcaption></figure></div></div></section>
-<section class="everyday chapter"><div class="wrap"><header class="head reveal"><div><p class="eyebrow">MINIPLAYER / SEM SAIR DO MOMENTO</p><h2>Por perto.<br>No seu tamanho.</h2></div><p class="txt">Só a capa. Uma barra de controles. Ou a letra inteira. O miniplayer fica sobre as outras janelas e acompanha o seu dia.</p></header><div class="mini-showcase"><figure><button class="image-open mini-square" type="button" aria-label="Ampliar miniplayer com capa"><img src="img/real/mini-cover.png" alt="Miniplayer real do SoundBoy no modo capa" width="320" height="320" loading="lazy"></button><figcaption><span>01 / CAPA</span><h3>O álbum, sempre presente.</h3></figcaption><button class="image-open mini-bar" type="button" aria-label="Ampliar miniplayer em barra"><img src="img/real/mini-bar.png" alt="Barra real do miniplayer, com controles de reprodução" width="380" height="150" loading="lazy"></button><p class="capture-caption">02 / Barra de controles</p></figure><figure><button class="image-open mini-tall" type="button" aria-label="Ampliar miniplayer com letra"><img src="img/real/mini-lyrics.png" alt="Miniplayer real com painel de letras aberto" width="380" height="660" loading="lazy"></button><figcaption><span>03 / LETRA</span><h3>Mais um verso. Mais um play.</h3></figcaption></figure></div><div class="daily-notes"><article><p class="eyebrow">BUSCA RÁPIDA / CTRL + K</p><h3>Encontre antes<br>de perder o ritmo.</h3><p>Faixas, artistas, álbuns, gêneros, playlists e comandos. A busca rápida reúne tudo em um só lugar.</p></article><article><p class="eyebrow">HISTÓRICO DE ESCUTA</p><h3>Aquela de ontem.<br>Encontrada.</h3><p>Revisite o que tocou por dia, veja os artistas e gêneros da semana e dê play de novo.</p></article></div></div></section>
-<section class="chapter collection" id="colecionar"><div class="wrap"><header class="head reveal"><div><p class="eyebrow">03 / COLECIONAR</p><h2>Uma boa coleção<br>merece cuidado.</h2></div><p class="txt">O mesmo disco pode chegar por caminhos diferentes. Compare as versões, ouça antes de escolher e mantenha a biblioteca do seu jeito.</p></header><div class="collection-layout"><div class="collection-copy"><div class="format-tokens" aria-label="Exemplos de formatos"><span>FLAC</span><span>WAV</span><span>MP3</span></div><h3>Fique com a versão<br>que faz sentido.</h3><p>O SoundBoy encontra duplicadas e sugere quais manter nas listas, priorizando formatos sem perda. Você compara as informações e decide.</p><p class="fine-print">O formato é uma pista sobre o arquivo. A qualidade da gravação também depende da fonte.</p><a class="text-link" href="#faq-arquivos">E os meus arquivos? <span aria-hidden="true">↗</span></a></div><figure class="collection-shot"><div class="screen"><img src="img/shots/duplicadas.webp" width="2400" height="1500" loading="lazy" decoding="async" alt="Comparação de arquivos duplicados com versões FLAC e MP3" ></div><figcaption>Compare. Ouça. Escolha.</figcaption></figure></div><div class="ownership"><span>LOCAL, POR NATUREZA.</span><h3>Suas pastas.<br>Seus arquivos.<br><span>Suas escolhas.</span></h3><p>Ouça sem internet e sem criar conta. Ao montar a biblioteca, o SoundBoy lê suas pastas sem mover os arquivos.</p></div></div></section>
-<section class="spec chapter" id="ficha"><div class="wrap"><header class="head"><div><p class="eyebrow">SOUNDBOY / FICHA DO PRODUTO</p><h2>Por dentro.</h2></div><p class="txt">Os detalhes que importam.<br>Sem precisar procurar nas entrelinhas.</p></header><dl class="tech-specs"><div><dt>Plataforma</dt><dd>Windows 10 e 11. Instalação por usuário, sem administrador.</dd></div><div><dt>Arquivos de áudio</dt><dd>MP3, WAV, FLAC, AIFF, M4A e OGG.</dd></div><div><dt>Reprodução</dt><dd>Fila editável, aleatório, repetição, Rádio e teclas de mídia.</dd></div><div><dt>Biblioteca</dt><dd>Álbuns, artistas, gêneros, playlists, histórico e duplicadas.</dd></div><div><dt>Informações musicais</dt><dd>BPM, tonalidade, roda Camelot e dados do arquivo.</dd></div><div><dt>Modos de escuta</dt><dd>Capas, Ouvindo agora, Discos em 3D, tela cheia com sete visuais e miniplayer.</dd></div><div><dt>Conteúdo complementar</dt><dd>Letras sincronizadas, fotos e biografias, quando disponíveis. A busca desses conteúdos requer internet.</dd></div><div><dt>Acesso</dt><dd>Gratuito. Sem conta, assinatura ou anúncios.</dd></div></dl></div></section>
-<section class="faq chapter wrap" aria-labelledby="faq-title"><div><p class="eyebrow">ANTES DO PRIMEIRO PLAY</p><h2 id="faq-title">Bom saber.</h2></div><div class="faq-list"><details><summary>O SoundBoy é um serviço de streaming?<span aria-hidden="true">+</span></summary><p>É um player para os arquivos de música que você tem no computador. Não inclui uma assinatura nem um catálogo de músicas para streaming.</p></details><details id="faq-arquivos"><summary>Ele move ou apaga minhas músicas?<span aria-hidden="true">+</span></summary><p>Adicionar pastas à biblioteca não move nem apaga seus arquivos. Na revisão de duplicadas, você escolhe as versões que aparecem nas listas. A exclusão de um arquivo exige uma ação sua.</p></details><details><summary>Posso ouvir sem internet?<span aria-hidden="true">+</span></summary><p>Sim. A reprodução dos seus arquivos é local. A internet é usada para buscar conteúdos como capas, letras e informações de artistas. Fotos e biografias já carregadas ficam guardadas.</p></details><details><summary>O Rádio descobre músicas fora da minha coleção?<span aria-hidden="true">+</span></summary><p>O Rádio monta a sequência com faixas da sua biblioteca. As sugestões usam andamento e tonalidade; quando faltam combinações, podem recorrer ao gênero. O resultado depende das músicas e informações disponíveis.</p></details><details><summary>Como instalar no Windows?<span aria-hidden="true">+</span></summary><p>Baixe o instalador oficial, abra o arquivo e escolha suas pastas de música. A versão 0.9.1 ainda não tem assinatura digital, então o Windows pode exibir um aviso de aplicativo não reconhecido. Confira a origem e as informações na <a href="https://github.com/lucasegydio/soundboy/releases">página oficial de versões</a> antes de instalar.</p></details></div></section>
-<section class="get" id="baixar"><div class="wrap"><div class="sound-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><p class="eyebrow">SOUNDBOY / SEU PRÓXIMO PLAY</p><h2>Escolha um disco.<br>Fique um pouco.</h2><p class="lede">Sua coleção está pronta para ser ouvida de novo.</p><div class="cta"><a class="dl" href="https://github.com/lucasegydio/soundboy/releases/latest/download/SoundBoy-instalador-0.9.1.exe">Baixar o SoundBoy <span aria-hidden="true">↓</span></a></div><p class="meta">Windows 10 e 11 · versão 0.9.1 · 202 MB</p><a class="version-link" href="https://github.com/lucasegydio/soundboy/releases">Ver todas as versões ↗</a><div class="start-strip"><span><b>01</b> Baixe.</span><span><b>02</b> Escolha suas pastas.</span><span><b>03</b> Dê play.</span></div></div></section>
+
+<!-- abertura: luz da capa + produto grande -->
+<section class="hero" id="topo">
+  <div class="hero-light" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap hero-in">
+    <p class="hero-kicker"><span class="mark" aria-hidden="true"></span>SoundBoy</p>
+    <h1>A música que é sua.<br>Do jeito que ela merece.</h1>
+    <p class="hero-sub">Um player gratuito para os arquivos que estão no seu computador. Capas grandes, letras no tempo da música, discos em 3D e a cor de cada álbum na tela.</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#baixar">Baixar para Windows</a>
+      <a class="btn-link" href="#ouvir">Ver por dentro</a>
+    </div>
+    <p class="hero-meta">Grátis · Sem conta · Sem assinatura</p>
+  </div>
+  <figure class="hero-shot reveal">
+    <img src="img/v2/capas.webp" width="2400" height="1500" alt="SoundBoy na tela Capas, com Untrue do Burial no centro de um leque de capas de álbuns">
+  </figure>
+</section>
+
+<!-- ouvir -->
+<section class="block" id="ouvir">
+  <div class="wrap head">
+    <p class="eyebrow">Ouvindo agora</p>
+    <h2>A capa vira luz.</h2>
+    <p class="lede">O fundo pega as cores do disco que está tocando. Ao lado, a fila, a letra e as músicas relacionadas. Embaixo, BPM, tom e a qualidade do arquivo.</p>
+  </div>
+  <div class="wrap">
+    <div class="theme-swap reveal" data-theme-swap>
+      <img class="sw-light" src="img/v2/ouvindo.webp" width="2400" height="1500" loading="lazy" alt="Tela Ouvindo agora tocando Kaytranada, com o fundo nas cores da capa e a fila ao lado">
+      <img class="sw-dark" src="img/v2/noturno.webp" width="2400" height="1500" loading="lazy" alt="A mesma tela no tema noturno, tocando Four Tet">
+      <div class="sw-ctl" role="group" aria-label="Tema">
+        <button type="button" class="on" data-sw="light">Claro</button><button type="button" data-sw="dark">Noturno</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- cartões grandes -->
+<section class="block tiles-block" id="discos">
+  <div class="wrap head">
+    <p class="eyebrow">Mais jeitos de ouvir</p>
+    <h2>Cada disco,<br>um momento.</h2>
+  </div>
+  <div class="wrap tiles">
+    <article class="tile tile-wide tile-dark reveal">
+      <div class="tile-txt">
+        <p class="eyebrow">Discos</p>
+        <h3>O ritual, em 3D.</h3>
+        <p>Toca-discos, CD portátil e case. Vinil, CD, holográfico, picture disc e mais. A cena gira no BPM da faixa.</p>
+      </div>
+      <div class="tile-img tile-discos">
+        <img src="img/v2/toca.webp" width="1600" height="1191" loading="lazy" alt="Toca-discos em 3D com um vinil girando">
+        <img src="img/v2/portatil.webp" width="1200" height="1258" loading="lazy" alt="CD portátil em 3D, verde-limão, com um CD prateado">
+      </div>
+    </article>
+    <article class="tile reveal">
+      <div class="tile-txt">
+        <p class="eyebrow">Letras</p>
+        <h3>Cada verso no tempo certo.</h3>
+        <p>Letra sincronizada quando existe. Gravada no arquivo ou buscada na internet, você escolhe.</p>
+      </div>
+      <div class="tile-img tile-crop"><img src="img/v2/letra-crop.webp" width="1400" height="1357" loading="lazy" alt="Tela com a letra de Love Lockdown, de Kanye West, ao lado da capa de 808s & Heartbreak"></div>
+    </article>
+    <article class="tile tile-ink reveal">
+      <div class="tile-txt">
+        <p class="eyebrow">Tela cheia · tecla V</p>
+        <h3>O som, em imagem.</h3>
+        <p>Sete visuais que reagem à música, com as cores da capa.</p>
+      </div>
+      <div class="tile-img tile-visual"><img src="img/v2/visual-crop.webp" width="1380" height="1080" loading="lazy" alt="Visual Aurora em tela cheia, reagindo à música"></div>
+    </article>
+    <article class="tile tile-wide tile-mini reveal">
+      <div class="tile-txt">
+        <p class="eyebrow">Miniplayer</p>
+        <h3>Por cima de tudo.</h3>
+        <p>Só a capa, uma barra de controles ou a letra inteira. Fica sobre as outras janelas enquanto você trabalha.</p>
+      </div>
+      <div class="tile-img mini-row">
+        <img src="img/v2/mini-capa.webp" width="900" height="900" loading="lazy" alt="Miniplayer só com a capa">
+        <img src="img/v2/mini-barra.webp" width="1200" height="450" loading="lazy" alt="Miniplayer em barra, com controles">
+        <img src="img/v2/mini-letra.webp" width="1000" height="1600" loading="lazy" alt="Miniplayer com a letra">
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- artistas -->
+<section class="block" id="colecao">
+  <div class="wrap head">
+    <p class="eyebrow">Artistas</p>
+    <h2>Tudo de quem você ouve.</h2>
+    <p class="lede">Foto, história e as faixas que você mais toca. Álbuns, singles e participações separados, e você decide o que é oficial.</p>
+  </div>
+  <div class="wrap">
+    <figure class="shot reveal"><img src="img/v2/artista.webp" width="2400" height="1500" loading="lazy" alt="Página de Kendrick Lamar, com foto grande e as faixas recentes"></figure>
+  </div>
+  <div class="wrap trio">
+    <div class="reveal"><h3>Rádio</h3><p>Liga a partir de uma faixa e segue com músicas da sua biblioteca que combinam em BPM e tom, sem repetir artista.</p></div>
+    <div class="reveal"><h3>Busca rápida</h3><p>Ctrl + K acha faixa, artista, álbum, gênero ou playlist de qualquer tela.</p></div>
+    <div class="reveal"><h3>Histórico</h3><p>O que tocou em cada dia, e os artistas e gêneros da semana.</p></div>
+  </div>
+</section>
+
+<!-- coleção em ordem -->
+<section class="block block-soft">
+  <div class="wrap split">
+    <div class="split-txt">
+      <p class="eyebrow">Coleção em ordem</p>
+      <h2>A mesma música,<br>uma vez só.</h2>
+      <p class="lede">O SoundBoy acha as repetidas e mostra lado a lado. Ouça a prévia, escolha a versão que fica. WAV e FLAC vêm na frente. Nenhum arquivo é apagado.</p>
+    </div>
+    <figure class="split-img reveal"><img src="img/v2/duplicadas.webp" width="1800" height="1350" loading="lazy" alt="Janela de duplicadas de 808s & Heartbreak, com versões MP3 e FLAC da mesma faixa"></figure>
+  </div>
+  <div class="wrap split split-rev">
+    <div class="split-txt">
+      <p class="eyebrow">Ajustes</p>
+      <h2>Do seu jeito.</h2>
+      <p class="lede">Tema claro, noturno ou automático. A cor do app, a intensidade da luz, as pastas que ele lê. E uma chave pra cada serviço da internet, ou nenhuma.</p>
+    </div>
+    <figure class="split-img reveal"><img src="img/v2/ajustes.webp" width="1600" height="996" loading="lazy" alt="Tela de Ajustes, seção Aparência"></figure>
+  </div>
+</section>
+
+<!-- local -->
+<section class="block local">
+  <div class="wrap">
+    <h2 class="local-h">Seus arquivos.<br><span>Seu computador.</span></h2>
+    <div class="local-grid">
+      <div><b>Sem conta</b><p>Abre e toca. Nada de cadastro, assinatura ou anúncio.</p></div>
+      <div><b>Sem internet</b><p>A música é sua e toca offline. A internet só busca extras, como letras e fotos.</p></div>
+      <div><b>Nada muda de lugar</b><p>O SoundBoy lê suas pastas. Não move, não renomeia, não apaga.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- baixar (modelo TIDAL: escuro, ícone em linha, botão branco) -->
+<section class="get" id="baixar">
+  <div class="wrap get-in">
+    <h2>Baixar SoundBoy</h2>
+    <svg class="get-laptop" viewBox="0 0 200 140" aria-hidden="true"><rect x="22" y="8" width="156" height="104" rx="7"/><rect x="8" y="120" width="184" height="8" rx="4"/></svg>
+    <p class="get-os"><b>Windows</b><span>Windows 10 e 11</span></p>
+    <a class="btn-white" href="https://github.com/lucasegydio/soundboy/releases/latest/download/SoundBoy-instalador-0.9.1.exe">Baixar</a>
+    <p class="get-note">Versão 0.9.1 · 202 MB · Mac em breve</p>
+    <div class="get-cards">
+      <a class="get-card" href="#perguntas" data-open="instalar">
+        <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="10" y="10" width="100" height="70" rx="6"/><path d="M10 26h100"/><circle cx="20" cy="18" r="2.5"/><circle cx="29" cy="18" r="2.5"/><circle cx="38" cy="18" r="2.5"/></svg>
+        <b>Primeira vez</b><span>Como instalar e o aviso do Windows</span><i>Ver passo a passo</i>
+      </a>
+      <a class="get-card" href="https://github.com/lucasegydio/soundboy/releases">
+        <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="22" y="14" width="60" height="62" rx="5"/><rect x="38" y="24" width="60" height="62" rx="5"/></svg>
+        <b>Todas as versões</b><span>Novidades e versões anteriores</span><i>Abrir no GitHub</i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- perguntas -->
+<section class="block faq" id="perguntas">
+  <div class="wrap faq-in">
+    <h2>Perguntas.</h2>
+    <div class="faq-list">
+      <details><summary>O SoundBoy é um streaming?</summary><p>Não. Ele toca os arquivos de música que já estão no seu computador (MP3, WAV, FLAC, AIFF, M4A e OGG). Não tem catálogo, conta nem assinatura.</p></details>
+      <details><summary>Ele mexe nas minhas músicas?</summary><p>Não. Ao adicionar uma pasta, o SoundBoy só lê os arquivos. Nas duplicadas, você escolhe qual versão aparece nas listas; nenhum arquivo é apagado.</p></details>
+      <details><summary>Funciona sem internet?</summary><p>Sim. A música toca offline. A internet só serve pra buscar letras, fotos e informações dos artistas, e cada serviço pode ser desligado nos Ajustes.</p></details>
+      <details><summary>Como funciona o Rádio?</summary><p>Ele parte da faixa que está tocando e segue com músicas da sua biblioteca que combinam em BPM e tom, sem repetir o mesmo artista em seguida. Não traz música de fora.</p></details>
+      <details id="instalar"><summary>Como instalar no Windows?</summary><p>Baixe o instalador e abra. Como a versão 0.9.1 ainda não tem assinatura digital, o Windows pode mostrar "O Windows protegeu o computador": clique em "Mais informações" e depois em "Executar assim mesmo". A instalação não pede administrador. Na primeira abertura, o SoundBoy procura as músicas do computador e você escolhe as pastas.</p></details>
+      <details><summary>E no Mac?</summary><p>A versão para Mac está em preparação.</p></details>
+    </div>
+  </div>
+</section>
+
 </main>
-<footer><div class="wrap"><span>SoundBoy · Colapse Corporation</span><span class="sp"></span><a href="https://github.com/lucasegydio/soundboy">GitHub ↗</a><a href="https://github.com/lucasegydio/soundboy/releases">Versões ↗</a><p>Telas capturadas diretamente no SoundBoy. Capas, nomes e fotos pertencem aos respectivos artistas e gravadoras. Conteúdos de letras e artistas dependem de disponibilidade.</p></div></footer>
-<dialog class="capture-dialog" aria-label="Captura ampliada do SoundBoy"><form method="dialog"><button aria-label="Fechar captura">Fechar ×</button></form><div class="capture-scroll"><img alt=""></div><p></p></dialog>
-</body></html>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span><span class="mark" aria-hidden="true"></span>SoundBoy · Colapse Corporation</span>
+    <span class="foot-links"><a href="https://github.com/lucasegydio/soundboy/releases">Versões</a></span>
+    <p class="foot-note">Telas capturadas no próprio SoundBoy. Capas, nomes e fotos pertencem aos artistas e gravadoras.</p>
+  </div>
+</footer>
+</body>
+</html>
