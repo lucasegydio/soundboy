@@ -206,3 +206,8 @@ p, .lede { text-wrap: wrap; }
 
 /* uma frase por linha: no computador a linha não quebra no meio; no celular quebra normal */
 @media (min-width: 861px) { .lede, .hero-sub, .tile .tile-txt p:not(.eyebrow), .local-grid p, .trio p { white-space: nowrap; } .tile-wide .tile-txt { flex-basis: 40%; } }
+
+/* Replay: as telas em fila, como stories */
+.rp-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-bottom: 28px; }
+.rp-row img { width: 100%; height: auto; border-radius: 18px; box-shadow: 0 24px 60px rgba(0,0,0,.18); display: block; }
+@media (max-width: 760px) { .rp-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
