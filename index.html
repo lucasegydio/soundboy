@@ -4,234 +4,128 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SoundBoy · Player gratuito para Windows</title>
-<meta name="description" content="SoundBoy é um player gratuito para a música que está no seu computador. Capas, letras, discos em 3D, rádio por BPM e tom e miniplayer. Sem conta e sem assinatura.">
+<meta name="description" content="SoundBoy toca a música que está no seu computador com capa grande, letra no tempo certo, discos em 3D e o seu Replay do ano. Grátis, sem conta e sem anúncio.">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="SoundBoy · Player gratuito para Windows">
-<meta property="og:description" content="A música que você guardou, tocada do jeito que ela merece. Gratuito, sem conta e sem assinatura.">
-<meta property="og:image" content="https://lucasegydio.github.io/soundboy/img/v2/capas.webp">
+<meta property="og:title" content="SoundBoy">
+<meta property="og:description" content="A música que é sua, do jeito que ela merece. Grátis para Windows.">
+<meta property="og:image" content="https://lucasegydio.github.io/soundboy/vid/sb-luz.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%231FB5A8'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='white' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231FB5A8'/%3E%3Ccircle cx='16' cy='12' r='4' fill='%23111'/%3E%3Cpath d='M6 19c3.3-2.6 6.7-2.6 10 0s6.7 2.6 10 0M6 24c3.3-2.6 6.7-2.6 10 0s6.7 2.6 10 0' fill='none' stroke='%23111' stroke-width='2.4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="site.css?v=4">
-<script src="site.js?v=4" defer></script>
+<link rel="stylesheet" href="familia.css?v=1ddf5d66">
+<link rel="stylesheet" href="site.css?v=5">
+<script src="familia.js?v=1ddf5d66" defer></script>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<!--fam:barra--><nav class="fam" aria-label="Programas"><div class="wrap fam-in"><a class="fam-home" href="https://lucasegydio.github.io/"><svg viewBox="0 0 24 24" fill="none" stroke="#E0B100" style="color:#E0B100" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke-width="4"/><circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none"/></svg>mind</a><a href="https://lucasegydio.github.io/soundboy/" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="#1FB5A8" style="color:#1FB5A8" aria-hidden="true"><circle cx="12" cy="8" r="4.5" fill="currentColor" stroke="none"/><path d="M2 16c3.3-2.6 6.7-2.6 10 0s6.7 2.6 10 0M2 21c3.3-2.6 6.7-2.6 10 0s6.7 2.6 10 0" stroke-width="2.6"/></svg>SoundBoy</a><a href="https://lucasegydio.github.io/vision/"><svg viewBox="0 0 24 24" fill="none" stroke="#FF5B00" style="color:#FF5B00" aria-hidden="true"><circle cx="7" cy="12" r="5" stroke-width="3.5"/><circle cx="17" cy="12" r="5" stroke-width="3.5"/></svg>Vision</a><a href="https://lucasegydio.github.io/onion/"><svg viewBox="0 0 24 24" fill="none" stroke="#B07CFF" style="color:#B07CFF" aria-hidden="true"><path d="M12 2.5c4.3 3.2 7.5 6.8 7.5 11a7.5 7.5 0 0 1-15 0c0-4.2 3.2-7.8 7.5-11z" stroke-width="3"/><path d="M12 9c1.8 1.6 2.8 3.2 2.8 4.8a2.8 2.8 0 0 1-5.6 0c0-1.6 1-3.2 2.8-4.8z" fill="currentColor" stroke="none"/></svg>Onion</a></div></nav><!--/fam:barra-->
 
 <header class="nav">
-  <div class="wrap nav-in">
-    <a class="brand" href="#topo" aria-label="SoundBoy"><span class="mark" aria-hidden="true"></span>SoundBoy</a>
+  <div class="nav-in">
+    <a class="brand" href="#topo"><svg viewBox="0 0 24 24" fill="none" stroke="#1FB5A8" aria-hidden="true"><circle cx="12" cy="8" r="4.5" fill="#1FB5A8" stroke="none"/><path d="M2 16c3.3-2.6 6.7-2.6 10 0s6.7 2.6 10 0M2 21c3.3-2.6 6.7-2.6 10 0s6.7 2.6 10 0" stroke-width="2.6"/></svg>SoundBoy</a>
     <nav class="nav-links" aria-label="Seções">
-      <a href="#ouvir">Ouvir</a><a href="#discos">Discos</a><a href="#colecao">Coleção</a><a href="#perguntas">Perguntas</a>
+      <a href="#luz">Tocando</a><a href="#discos">Discos</a><a href="#visual">Visual</a><a href="#replay">Replay</a><a href="#perguntas">Perguntas</a>
     </nav>
-    <a class="pill-dl" href="#baixar">Baixar</a>
+    <a class="pill" href="#baixar">Baixar</a>
   </div>
 </header>
 
 <main id="conteudo">
 
-<!-- abertura: luz da capa + produto grande -->
 <section class="hero" id="topo">
-  <div class="hero-light" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-  <div class="wrap hero-in">
-    <p class="hero-kicker"><span class="mark" aria-hidden="true"></span>SoundBoy</p>
-    <h1>A música que é sua.<br>Do jeito que ela merece.</h1>
-    <p class="hero-sub">Um player gratuito para a música do seu computador.<br>Capas grandes, letras no tempo certo e discos em 3D.</p>
-    <div class="hero-cta">
-      <a class="btn-primary" href="#baixar">Baixar para Windows</a>
-      <a class="btn-link" href="#ouvir">Ver por dentro</a>
-    </div>
-    <p class="hero-meta">Grátis · Sem conta · Sem assinatura</p>
+  <div class="wrap">
+    <h1>A música que é sua.</h1>
+    <p class="lead"><b>O SoundBoy toca os arquivos que você guardou</b> com capa grande, letra no tempo certo e uma luz que nasce do disco.</p>
+    <div class="hero-cta"><a class="btn" href="#baixar">Baixar para Windows</a><a class="more" href="#luz">Ver tocando</a></div>
+    <p class="hero-note">Grátis. Sem conta, sem anúncio.</p>
   </div>
-  <figure class="hero-shot reveal">
-    <img src="img/v2/capas.webp" width="2400" height="1500" alt="SoundBoy na tela Capas, com Untrue do Burial no centro de um leque de capas de álbuns">
-  </figure>
+  <div class="scene-media">
+    <figure class="device"><div class="device-screen"><video data-src="vid/sb-capas.mp4" poster="vid/sb-capas.jpg" muted loop playsinline aria-label="SoundBoy passando pelas capas da biblioteca"></video></div><div class="device-base"></div></figure>
+  </div>
 </section>
 
-<!-- ouvir -->
-<section class="block" id="ouvir">
-  <div class="wrap head">
-    <p class="eyebrow">Ouvindo agora</p>
+<section class="scene" id="luz">
+  <div class="scene-head reveal">
     <h2>A capa vira luz.</h2>
-    <p class="lede">O fundo pega as cores do disco que está tocando.<br>Ao lado, a fila, a letra e as relacionadas.<br>Embaixo, BPM, tom e qualidade do arquivo.</p>
+    <p class="lead"><b>Cada disco pinta a tela com as cores dele.</b> A letra chega sozinha e acompanha a voz, linha por linha. Ao lado, a fila e o que combina com o que está tocando.</p>
   </div>
-  <div class="wrap">
-    <div class="theme-swap reveal" data-theme-swap>
-      <img class="sw-light" src="img/v2/ouvindo.webp" width="2400" height="1500" loading="lazy" alt="Tela Ouvindo agora tocando Kaytranada, com o fundo nas cores da capa e a fila ao lado">
-      <img class="sw-dark" src="img/v2/noturno.webp" width="2400" height="1500" loading="lazy" alt="A mesma tela no tema noturno, tocando Four Tet">
-      <div class="sw-ctl" role="group" aria-label="Tema">
-        <button type="button" class="on" data-sw="light">Claro</button><button type="button" data-sw="dark">Noturno</button>
-      </div>
-    </div>
+  <div class="scene-media">
+    <figure class="device"><div class="device-screen"><video data-src="vid/sb-luz.mp4" poster="vid/sb-luz.jpg" muted loop playsinline aria-label="A luz da tela mudando a cada faixa, com a letra sincronizada"></video></div><div class="device-base"></div></figure>
   </div>
 </section>
 
-<!-- cartões grandes -->
-<section class="block tiles-block" id="discos">
-  <div class="wrap head">
-    <p class="eyebrow">Mais jeitos de ouvir</p>
-    <h2>Cada disco,<br>um momento.</h2>
-  </div>
-  <div class="wrap tiles">
-    <article class="tile tile-wide tile-dark reveal">
-      <div class="tile-txt">
-        <p class="eyebrow">Discos</p>
-        <h3>O ritual, em 3D.</h3>
-        <p>Toca-discos, CD portátil e case.<br>Vinil, CD, holográfico e mais.<br>A cena gira no BPM da faixa.</p>
-      </div>
-      <div class="tile-img tile-discos">
-        <img src="img/v2/toca.webp" width="1600" height="1191" loading="lazy" alt="Toca-discos em 3D com um vinil girando">
-        <img src="img/v2/portatil.webp" width="1200" height="1258" loading="lazy" alt="CD portátil em 3D, verde-limão, com um CD prateado">
-      </div>
-    </article>
-    <article class="tile reveal">
-      <div class="tile-txt">
-        <p class="eyebrow">Letras</p>
-        <h3>Cada verso no tempo certo.</h3>
-        <p>Letra sincronizada quando existe.<br>Do arquivo ou da internet.</p>
-      </div>
-      <div class="tile-img tile-crop"><img src="img/v2/letra-crop.webp" width="1400" height="1357" loading="lazy" alt="Tela com a letra de Love Lockdown, de Kanye West, ao lado da capa de 808s & Heartbreak"></div>
-    </article>
-    <article class="tile tile-ink reveal">
-      <div class="tile-txt">
-        <p class="eyebrow">Tela cheia · tecla V</p>
-        <h3>O som, em imagem.</h3>
-        <p>Sete visuais que reagem à música.<br>Com as cores da capa.</p>
-      </div>
-      <div class="tile-img tile-visual"><img src="img/v2/visual-crop.webp" width="1380" height="1080" loading="lazy" alt="Visual Aurora em tela cheia, reagindo à música"></div>
-    </article>
-    <article class="tile tile-wide tile-mini reveal">
-      <div class="tile-txt">
-        <p class="eyebrow">Miniplayer</p>
-        <h3>Por cima de tudo.</h3>
-        <p>Só a capa, a barra ou a letra.<br>Fica por cima das outras janelas.</p>
-      </div>
-      <div class="tile-img mini-row">
-        <img src="img/v2/mini-capa.webp" width="900" height="900" loading="lazy" alt="Miniplayer só com a capa">
-        <img src="img/v2/mini-barra.webp" width="1200" height="450" loading="lazy" alt="Miniplayer em barra, com controles">
-        <img src="img/v2/mini-letra.webp" width="1000" height="1600" loading="lazy" alt="Miniplayer com a letra">
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- artistas -->
-<section class="block" id="replay">
-  <div class="wrap head">
-    <p class="eyebrow">Replay</p>
-    <h2>Sua semana, seu mês, seu ano.</h2>
-    <p class="lede">O que você mais ouviu, contado em telas animadas.<br>Minutos, artistas, BPM, tom e o seu perfil de escuta.<br>Cada tela vira imagem pros Stories e pro X.</p>
-  </div>
-  <div class="wrap">
-    <div class="rp-row reveal">
-      <img src="img/v2/replay-perfil.webp" width="720" height="1280" loading="lazy" alt="Tela do Replay com o perfil Passaporte carimbado e a medalha">
-      <img src="img/v2/replay-minutos.webp" width="720" height="1280" loading="lazy" alt="Tela do Replay com 1.248 minutos ouvidos na semana">
-      <img src="img/v2/replay-bpm.webp" width="720" height="1280" loading="lazy" alt="Tela do Replay com o andamento da semana, 130 BPM">
-      <img src="img/v2/replay-resumo.webp" width="720" height="1280" loading="lazy" alt="Resumo da semana com os cinco artistas e as cinco músicas mais ouvidas">
-    </div>
-    <figure class="shot reveal"><img src="img/v2/replay-pagina.webp" width="2400" height="1500" loading="lazy" alt="Página do Replay da semana com minutos, perfil e artistas mais ouvidos"></figure>
-  </div>
-  <div class="wrap trio">
-    <div class="reveal"><h3>Toda semana</h3><p>As melhores da semana.<br>Atualiza sozinho.</p></div>
-    <div class="reveal"><h3>Todo mês e todo ano</h3><p>Mais ouvidas do mês.<br>Replay do ano.</p></div>
-    <div class="reveal"><h3>Vira playlist</h3><p>Salve as mais ouvidas.<br>Ouça de novo no ano que vem.</p></div>
-  </div>
-</section>
-
-<section class="block" id="colecao">
-  <div class="wrap head">
-    <p class="eyebrow">Artistas</p>
-    <h2>Tudo de quem você ouve.</h2>
-    <p class="lede">Foto, história e as faixas que você mais toca.<br>Álbuns, singles e participações separados.<br>Você decide o que é oficial.</p>
-  </div>
-  <div class="wrap">
-    <figure class="shot reveal"><img src="img/v2/artista.webp" width="2400" height="1500" loading="lazy" alt="Página de Kendrick Lamar, com foto grande e as faixas recentes"></figure>
-  </div>
-  <div class="wrap trio">
-    <div class="reveal"><h3>Rádio</h3><p>Segue a partir de uma faixa.<br>Combina BPM e tom.<br>Não repete artista.</p></div>
-    <div class="reveal"><h3>Busca rápida</h3><p>Ctrl + K em qualquer tela.<br>Faixa, artista, álbum ou playlist.</p></div>
-    <div class="reveal"><h3>Histórico</h3><p>O que tocou em cada dia.<br>Os artistas e gêneros da semana.</p></div>
-  </div>
-</section>
-
-<!-- coleção em ordem -->
-<section class="block block-soft">
+<section class="scene soft" id="discos">
   <div class="wrap split">
-    <div class="split-txt">
-      <p class="eyebrow">Coleção em ordem</p>
-      <h2>A mesma música,<br>uma vez só.</h2>
-      <p class="lede">O SoundBoy acha as repetidas.<br>Ouça a prévia e escolha a que fica.<br>WAV e FLAC vêm na frente.<br>Nenhum arquivo é apagado.</p>
+    <div class="reveal">
+      <h2>Cada disco,<br>um momento.</h2>
+      <p class="lead"><b>O CD gira dentro do estojo. O vinil, no toca-discos.</b> Tudo em 3D, no tempo da música, do jeito que você lembra.</p>
     </div>
-    <figure class="split-img reveal"><img src="img/v2/duplicadas.webp" width="1800" height="1350" loading="lazy" alt="Janela de duplicadas de 808s & Heartbreak, com versões MP3 e FLAC da mesma faixa"></figure>
-  </div>
-  <div class="wrap split split-rev">
-    <div class="split-txt">
-      <p class="eyebrow">Ajustes</p>
-      <h2>Do seu jeito.</h2>
-      <p class="lede">Tema claro, noturno ou automático.<br>A cor do app e a intensidade da luz.<br>As pastas que ele lê.<br>Uma chave pra cada serviço da internet.</p>
-    </div>
-    <figure class="split-img reveal"><img src="img/v2/ajustes.webp" width="1600" height="996" loading="lazy" alt="Tela de Ajustes, seção Aparência"></figure>
+    <figure class="frame reveal"><video data-src="vid/sb-discos.mp4" poster="vid/sb-discos.jpg" muted loop playsinline aria-label="Um CD girando no estojo e depois um vinil no toca-discos"></video></figure>
   </div>
 </section>
 
-<!-- local -->
-<section class="block local">
-  <div class="wrap">
-    <h2 class="local-h">Seus arquivos.<br><span>Seu computador.</span></h2>
-    <div class="local-grid">
-      <div><b>Sem conta</b><p>Abre e toca.<br>Sem cadastro, assinatura ou anúncio.</p></div>
-      <div><b>Sem internet</b><p>A música toca offline.<br>A internet só busca letras e fotos.</p></div>
-      <div><b>Nada muda de lugar</b><p>O SoundBoy só lê suas pastas.<br>Não move, não renomeia, não apaga.</p></div>
-    </div>
+<section class="scene" id="visual">
+  <div class="scene-head reveal">
+    <h2>Feito pra tela cheia.</h2>
+    <p class="lead"><b>Oito visuais que dançam com a música</b>, nas cores da capa, com a letra passando por cima. Bom pra festa em casa, melhor ainda pra ficar olhando.</p>
+  </div>
+  <div class="scene-media">
+    <figure class="device"><div class="device-screen"><video data-src="vid/sb-visual.mp4" poster="vid/sb-visual.jpg" muted loop playsinline aria-label="Os modos do Visual reagindo à música"></video></div><div class="device-base"></div></figure>
   </div>
 </section>
 
-<!-- baixar (modelo TIDAL: escuro, ícone em linha, botão branco) -->
-<section class="get" id="baixar">
-  <div class="wrap get-in">
-    <h2>Baixar SoundBoy</h2>
-    <svg class="get-laptop" viewBox="0 0 200 140" aria-hidden="true"><rect x="22" y="8" width="156" height="104" rx="7"/><rect x="8" y="120" width="184" height="8" rx="4"/></svg>
-    <p class="get-os"><b>Windows</b><span>Windows 10 e 11</span></p>
-    <a class="btn-white" href="https://github.com/lucasegydio/soundboy/releases/latest/download/SoundBoy-instalador-0.9.2.exe">Baixar</a>
-    <p class="get-note">Versão 0.9.2 · 202 MB · Mac em breve</p>
-    <div class="get-cards">
-      <a class="get-card" href="#perguntas" data-open="instalar">
-        <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="10" y="10" width="100" height="70" rx="6"/><path d="M10 26h100"/><circle cx="20" cy="18" r="2.5"/><circle cx="29" cy="18" r="2.5"/><circle cx="38" cy="18" r="2.5"/></svg>
-        <b>Primeira vez</b><span>Como instalar e o aviso do Windows</span><i>Ver passo a passo</i>
-      </a>
-      <a class="get-card" href="https://github.com/lucasegydio/soundboy/releases">
-        <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="22" y="14" width="60" height="62" rx="5"/><rect x="38" y="24" width="60" height="62" rx="5"/></svg>
-        <b>Todas as versões</b><span>Novidades e versões anteriores</span><i>Abrir no GitHub</i>
-      </a>
-    </div>
+<section class="scene" id="replay">
+  <div class="scene-head reveal">
+    <h2>O seu ano em música.</h2>
+    <p class="lead"><b>O Replay conta o que você mais ouviu</b> na semana, no mês e no ano. Vira uma sequência de telas que dá pra guardar e postar, e uma playlist pronta.</p>
+  </div>
+  <div class="scene-media">
+    <figure class="device"><div class="device-screen"><video data-src="vid/sb-replay.mp4" poster="vid/sb-replay.jpg" muted loop playsinline aria-label="A página do Replay e as telas do ano passando"></video></div><div class="device-base"></div></figure>
   </div>
 </section>
 
-<!-- perguntas -->
-<section class="block faq" id="perguntas">
+<section class="scene soft" id="mini">
+  <div class="scene-head reveal">
+    <h2>Sempre por perto.</h2>
+    <p class="lead"><b>O miniplayer fica por cima de tudo</b> enquanto você trabalha. A capa inteira, a letra embaixo, e as teclas de mídia do teclado funcionando.</p>
+  </div>
+  <div class="scene-media">
+    <div class="desk reveal"><canvas class="fam-art" data-art="cover" data-c="#1FB5A8,#f2c9a4,#c9c3e8,#ff9a6b,#9fe0d8" aria-hidden="true"></canvas>
+      <div class="win"><video data-src="vid/sb-mini.mp4" poster="vid/sb-mini.jpg" muted loop playsinline aria-label="O miniplayer trocando de faixa"></video></div></div>
+  </div>
+</section>
+
+<section class="scene" id="inicio">
+  <div class="scene-head reveal">
+    <h2>Playlists que se fazem sozinhas.</h2>
+    <p class="lead"><b>O Início monta seleções com o que você ouve</b>, cada uma com uma capa que se mexe. Rádio por BPM e tom, sem repetir artista em seguida.</p>
+  </div>
+  <div class="scene-media">
+    <figure class="device"><div class="device-screen"><video data-src="vid/sb-inicio.mp4" poster="vid/sb-inicio.jpg" muted loop playsinline aria-label="A tela Início com as playlists animadas"></video></div><div class="device-base"></div></figure>
+  </div>
+</section>
+
+<!--fam:ficha--><section class="fam-ficha" id="ficha"><div class="wrap"><div class="fam-ficha-top"><h2>Ficha técnica.</h2><p class="fam-code">SoundBoy 0.9.3</p></div><dl class="fam-specs"><div><dt>Formatos</dt><dd>MP3, WAV, FLAC, AIFF, M4A e OGG</dd></div><div><dt>Letras</dt><dd>Sincronizadas, linha a linha</dd></div><div><dt>Discos</dt><dd>Vinil e CD em 3D, no BPM</dd></div><div><dt>Visual</dt><dd>8 modos, nas cores da capa</dd></div><div><dt>Replay</dt><dd>Semana, mês, ano e sempre</dd></div><div><dt>Miniplayer</dt><dd>Por cima dos outros programas</dd></div><div><dt>Duplicadas</dt><dd>Escolhe qual aparece, sem apagar</dd></div><div><dt>Internet</dt><dd>Opcional, por serviço</dd></div><div><dt>Sistema</dt><dd>Windows 10 e 11 · Mac em breve</dd></div><div><dt>Instalador</dt><dd>205 MB, sem administrador</dd></div><div><dt>Conta</dt><dd>Nenhuma</dd></div><div><dt>Preço</dt><dd>Grátis</dd></div></dl></div></section><!--/fam:ficha-->
+
+<!--fam:juntos--><section class="fam-juntos"><div class="wrap"><div class="fam-head"><h2>Feitos pra andar juntos.</h2><p class="lead"><b>O que você ouve aqui, você toca no Vision.</b> Os três leem as mesmas pastas de música, e cada um faz uma coisa muito bem.</p></div><div class="fam-glass"><a class="fam-tile reveal" href="https://lucasegydio.github.io/vision/" style="--c:#FF5B00;--tx:#fff"><canvas class="fam-art" data-art="glass" data-c="#FF5B00,#ffb38a,#ff2d55,#ffd166" data-base="#8a2400" aria-hidden="true"></canvas><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" style="color:#fff" aria-hidden="true"><circle cx="7" cy="12" r="5" stroke-width="3.5"/><circle cx="17" cy="12" r="5" stroke-width="3.5"/></svg><b>Vision</b><p>Dois decks e stems, sem assinatura.</p><span class="go">Conhecer</span></a><a class="fam-tile reveal" href="https://lucasegydio.github.io/onion/" style="--c:#B07CFF;--tx:#fff"><canvas class="fam-art" data-art="glass" data-c="#B07CFF,#e6d4ff,#6b3cff,#ff8ad1" data-base="#3d1b85" aria-hidden="true"></canvas><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" style="color:#fff" aria-hidden="true"><path d="M12 2.5c4.3 3.2 7.5 6.8 7.5 11a7.5 7.5 0 0 1-15 0c0-4.2 3.2-7.8 7.5-11z" stroke-width="3"/><path d="M12 9c1.8 1.6 2.8 3.2 2.8 4.8a2.8 2.8 0 0 1-5.6 0c0-1.6 1-3.2 2.8-4.8z" fill="currentColor" stroke="none"/></svg><b>Onion</b><p>Voz, bateria, baixo e o resto.</p><span class="go">Conhecer</span></a><a class="fam-tile reveal" href="https://lucasegydio.github.io/" style="--c:#FFD12E;--tx:#111"><canvas class="fam-art" data-art="glass" data-c="#FFD12E,#fff3b0,#ff9a3c,#ffe066" data-base="#d9a400" aria-hidden="true"></canvas><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#111" style="color:#111" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke-width="4"/><circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none"/></svg><b>mind</b><p>Ouvir, tocar e separar.</p><span class="go">Ver os três</span></a><div class="fam-line" aria-hidden="true"><svg viewBox="0 0 1000 24" preserveAspectRatio="none"><path d="M44,12 C200,12 240,4 377,12 S560,20 711,12 S900,4 1000,12"/></svg><span class="fam-node" style="left:calc(0.000% + 50px)"></span><span class="fam-node" style="left:calc(33.333% + 50px)"></span><span class="fam-node" style="left:calc(66.667% + 50px)"></span></div></div></div></section><!--/fam:juntos-->
+
+<!--fam:baixar--><section class="fam-get" id="baixar"><div class="wrap"><div class="app-ic" style="--c:#1FB5A8"><svg viewBox="0 0 24 24" fill="none" stroke="#111" style="color:#111" aria-hidden="true"><circle cx="12" cy="8" r="4.5" fill="currentColor" stroke="none"/><path d="M2 16c3.3-2.6 6.7-2.6 10 0s6.7 2.6 10 0M2 21c3.3-2.6 6.7-2.6 10 0s6.7 2.6 10 0" stroke-width="2.6"/></svg></div><h2>Baixe o SoundBoy.</h2><p class="lead"><b>Grátis, sem conta e sem anúncio.</b> Abre, encontra a sua música e toca.</p><a class="btn" href="https://github.com/lucasegydio/soundboy/releases/latest/download/SoundBoy-instalador.exe">Baixar para Windows</a><small>Versão 0.9.3 · 205 MB · Windows 10 e 11 · Mac em breve · <a href="#instalar" data-open="instalar">Primeira vez</a></small></div></section><!--/fam:baixar-->
+
+<section class="faq" id="perguntas">
   <div class="wrap faq-in">
     <h2>Perguntas.</h2>
-    <div class="faq-list">
-      <details><summary>O SoundBoy é um streaming?</summary><p>Não. Ele toca os arquivos de música que já estão no seu computador (MP3, WAV, FLAC, AIFF, M4A e OGG). Não tem catálogo, conta nem assinatura.</p></details>
-      <details><summary>Ele mexe nas minhas músicas?</summary><p>Não. Ao adicionar uma pasta, o SoundBoy só lê os arquivos. Nas duplicadas, você escolhe qual versão aparece nas listas; nenhum arquivo é apagado.</p></details>
-      <details><summary>Funciona sem internet?</summary><p>Sim. A música toca offline. A internet só serve pra buscar letras, fotos e informações dos artistas, e cada serviço pode ser desligado nos Ajustes.</p></details>
-      <details><summary>Como funciona o Rádio?</summary><p>Ele parte da faixa que está tocando e segue com músicas da sua biblioteca que combinam em BPM e tom, sem repetir o mesmo artista em seguida. Não traz música de fora.</p></details>
-      <details id="instalar"><summary>Como instalar no Windows?</summary><p>Baixe o instalador e abra. Como a versão 0.9.2 ainda não tem assinatura digital, o Windows pode mostrar "O Windows protegeu o computador": clique em "Mais informações" e depois em "Executar assim mesmo". A instalação não pede administrador. Na primeira abertura, o SoundBoy procura as músicas do computador e você escolhe as pastas.</p></details>
-      <details><summary>E no Mac?</summary><p>A versão para Mac está em preparação.</p></details>
-    </div>
+    <details><summary>O SoundBoy é um streaming?</summary><p>Não. Ele toca os arquivos de música que já estão no seu computador: MP3, WAV, FLAC, AIFF, M4A e OGG. Não tem catálogo, conta nem assinatura.</p></details>
+    <details><summary>Ele mexe nas minhas músicas?</summary><p>Não. Ao adicionar uma pasta, ele só lê os arquivos. Nas faixas repetidas, você escolhe qual aparece nas listas, e nenhum arquivo é apagado.</p></details>
+    <details><summary>Funciona sem internet?</summary><p>Sim, a música toca offline. A internet serve pra buscar letras, fotos e informações dos artistas, e cada serviço pode ser desligado nos Ajustes.</p></details>
+    <details id="instalar"><summary>Como instalar no Windows?</summary><p>Baixe o instalador e abra. Como ele ainda não tem assinatura digital, o Windows pode mostrar "O Windows protegeu o computador": clique em "Mais informações" e depois em "Executar assim mesmo". A instalação não pede administrador. Na primeira abertura, o SoundBoy procura as músicas do computador e você escolhe as pastas.</p></details>
+    <details><summary>E no Mac?</summary><p>A versão para Mac está em preparação.</p></details>
   </div>
 </section>
 
 </main>
 
-<footer class="foot">
-  <div class="wrap foot-in">
-    <span><span class="mark" aria-hidden="true"></span>SoundBoy · Colapse Corporation</span>
-    <span class="foot-links"><a href="https://github.com/lucasegydio/soundboy/releases">Versões</a></span>
-    <p class="foot-note">Telas capturadas no próprio SoundBoy. Capas, nomes e fotos pertencem aos artistas e gravadoras.</p>
-  </div>
-</footer>
+<!--fam:rodape--><footer class="fam-foot"><div class="wrap"><div class="fam-cols"><div><b>Programas</b><a href="https://lucasegydio.github.io/soundboy/">SoundBoy</a><a href="https://lucasegydio.github.io/vision/">Vision</a><a href="https://lucasegydio.github.io/onion/">Onion</a></div><div><b>Baixar para Windows</b><a href="https://github.com/lucasegydio/soundboy/releases/latest/download/SoundBoy-instalador.exe">SoundBoy</a><a href="https://github.com/lucasegydio/vision/releases/latest/download/Vision-instalador.exe">Vision</a><a href="https://github.com/lucasegydio/onion/releases/latest/download/Onion-instalador.exe">Onion</a></div><div><b>Mais</b><a href="https://lucasegydio.github.io/">mind</a><a href="#perguntas">Perguntas</a><a href="https://github.com/lucasegydio/soundboy/releases">Versões anteriores</a></div></div><p class="fam-note">Telas gravadas no próprio SoundBoy. Capas, nomes e fotos pertencem aos artistas e gravadoras.</p><div class="fam-base"><b>Engineering by Colapse</b></div></div></footer><!--/fam:rodape-->
 </body>
 </html>
